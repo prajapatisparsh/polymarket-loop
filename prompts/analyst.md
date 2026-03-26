@@ -16,7 +16,7 @@ KEY RULES:
 
 Output JSON only:
 {
-  "reasoning": string (2-3 sentences),
+  "reasoning": string (1 sentence),
   "final_prob": float,
   "edge": float (final_prob minus market_price),
   "place_paper_bet": boolean (true if abs(edge) > 0.07)
