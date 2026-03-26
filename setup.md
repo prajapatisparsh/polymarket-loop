@@ -11,10 +11,7 @@ To set up a new experiment run:
    - `prompts/macro.md`
    - `prompts/domains.md`
    - `prompts/analyst.md`
-   - `prompts/macro.md`
-   - `prompts/domains.md`
-   - `prompts/analyst.md`
-3. **Verify prerequisites**: pip install groq supabase requests. If anything is missing, tell the human and stop.
+3. **Verify prerequisites**: `.venv\Scripts\pip install groq supabase python-dotenv requests`. If anything is missing, tell the human and stop.
 4. **Create results.tsv** with this header row:
    `commit	brier_score	status	description`
 5. **Establish baseline**: Run the eval command as-is before making any changes. Log the result as the first row.
@@ -37,12 +34,12 @@ To set up a new experiment run:
 
 ## Eval Command
 
-```bash
-python eval.py
+```powershell
+.venv\Scripts\python.exe eval.py
 ```
 
 The score line in stdout looks like: `brier_score: 0.2314`
-Extract it with: `grep "^brier_score:" run.log`
+Extract it with: `findstr "brier_score:" run.log`
 
 ## Results Format
 
@@ -65,15 +62,15 @@ LOOP FOREVER:
 2. Modify `prompts/macro.md`, `prompts/domains.md`, `prompts/analyst.md` with an experimental idea.
 3. `git commit -m "short description of what you changed"`
 4. Run the experiment:
-   ```bash
-   timeout 1800 python eval.py > run.log 2>&1
+   ```powershell
+   .venv\Scripts\python.exe eval.py --check-mutation > run.log 2>&1
    ```
    IMPORTANT: Always redirect to run.log. Do NOT use tee or let output stream into your context window. It will flood your context and slow you down across experiments.
-5. Read the result: `grep "^brier_score:" run.log`
-6. If grep output is empty, the run crashed or timed out. Run `tail -50 run.log` to see the error.
+5. Read the result: `findstr "brier_score:" run.log`
+6. If the result is empty or shows `not_enough_data`, the run crashed. Run `Get-Content run.log -Tail 50` to see the error.
 7. Record the result in results.tsv.
 8. If brier_score improved (lower) compared to the current best, **keep** the commit (advance the branch).
-9. If brier_score is equal or worse (higher or same), **discard** and revert: `git reset --hard HEAD~1`.
+9. If brier_score is equal or worse (higher or same), **discard** and revert: `git reset --hard HEAD~1`. The `--check-mutation` flag also prints a gate decision (`accept`/`reject`) — use it as confirmation, but the numeric comparison is the source of truth.
 
 **Timeout**: If a run exceeds 30 minutes, kill it and treat it as a crash.
 
