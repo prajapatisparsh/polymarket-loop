@@ -18,7 +18,6 @@ Output JSON only:
 {
   "reasoning": string (2-3 sentences),
   "final_prob": float,
-  "confidence": float,
   "edge": float (final_prob minus market_price),
   "place_paper_bet": boolean (true if abs(edge) > 0.07)
 }
