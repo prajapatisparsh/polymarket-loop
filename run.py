@@ -125,23 +125,70 @@ def calibration_summary():
             f"({100*correct//total}%), avg Brier={avg_brier:.4f}. "
             f"Recalibrate if overconfident (high confidence but wrong) or underconfident (hedging clear signals).")
 
+def _resolve_outcome_from_clob(market_id):
+    """
+    Returns (closed: bool, outcome: float|None) from CLOB API.
+    outcome is 1.0 if YES wins, 0.0 if NO wins, None if not yet resolved.
+    """
+    resp = requests.get(f"https://clob.polymarket.com/markets/{market_id}", timeout=10)
+    if not resp.ok:
+        return False, None
+    r = resp.json()
+    if not r.get("closed"):
+        return False, None
+    tokens = r.get("tokens", [])
+    winner = next((t for t in tokens if t.get("winner")), None)
+    if winner is None:
+        return True, None  # closed but winner not yet set
+    return True, 1.0 if winner.get("outcome", "").lower() == "yes" else 0.0
+
+
+def _resolve_outcome_from_gamma(market_id):
+    """
+    Fallback resolver via Gamma API (handles markets pruned from CLOB).
+    Returns (closed: bool, outcome: float|None).
+    """
+    resp = requests.get("https://gamma-api.polymarket.com/markets",
+                        params={"conditionId": market_id, "limit": 1}, timeout=10)
+    if not resp.ok:
+        return False, None
+    data = resp.json()
+    if not isinstance(data, list):
+        data = data.get("markets", [])
+    for gm in data:
+        if gm.get("conditionId") != market_id:
+            continue
+        if not gm.get("closed"):
+            return False, None
+        prices_raw = gm.get("outcomePrices", "[]")
+        try:
+            prices = json.loads(prices_raw) if isinstance(prices_raw, str) else prices_raw
+            yes_price = float(prices[0]) if prices else None
+            if yes_price in (0.0, 1.0):
+                return True, yes_price
+        except Exception:
+            pass
+        return True, None  # closed but prices ambiguous
+    return False, None
+
+
 def eval_resolved():
     unresolved = sb.table("bets").select("*").eq("resolved", False).execute().data
     for bet in unresolved:
-        resp = requests.get(f"https://clob.polymarket.com/markets/{bet['market_id']}", timeout=10)
-        if not resp.ok:
-            print(f"  CLOB fetch failed for {bet['market_id']}: {resp.status_code}")
-            continue
-        r = resp.json()
-        if r.get("closed"):
-            tokens = r.get("tokens", [])
-            outcome = 1.0 if tokens and tokens[0].get("winner") else 0.0
+        mid = bet["market_id"]
+        closed, outcome = _resolve_outcome_from_clob(mid)
+        if not closed:
+            # CLOB couldn't confirm — try Gamma fallback (handles pruned markets)
+            closed, outcome = _resolve_outcome_from_gamma(mid)
+        if closed and outcome is not None:
             sb.table("bets").update({
                 "resolved": True,
                 "outcome": outcome,
                 "resolved_at": datetime.now(timezone.utc).isoformat()
             }).eq("id", bet["id"]).execute()
             print(f"Resolved: {bet['question'][:50]} → {outcome}")
+        elif closed:
+            print(f"  Market closed but outcome unclear, skipping: {mid[:20]}...")
 
 def run():
     print("=== polymarket-loop run ===")
