@@ -11,7 +11,7 @@ If current, determine:
 - edge_type: research / timing / contrarian
 
 Only proceed if:
-- Event is current or future (2026 or later)
+- Event is current or future (2025 or later)
 - domain is in [politics, crypto, economics, science, climate, bitcoin]
 - liquidity_tier is medium or high
 

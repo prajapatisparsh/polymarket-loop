@@ -72,7 +72,11 @@ def fetch_markets():
 def eval_resolved():
     unresolved = sb.table("bets").select("*").eq("resolved", False).execute().data
     for bet in unresolved:
-        r = requests.get(f"https://clob.polymarket.com/markets/{bet['market_id']}").json()
+        resp = requests.get(f"https://clob.polymarket.com/markets/{bet['market_id']}", timeout=10)
+        if not resp.ok:
+            print(f"  CLOB fetch failed for {bet['market_id']}: {resp.status_code}")
+            continue
+        r = resp.json()
         if r.get("closed"):
             tokens = r.get("tokens", [])
             outcome = 1.0 if tokens and tokens[0].get("winner") else 0.0
@@ -88,13 +92,23 @@ def run():
     eval_resolved()
     markets = fetch_markets()
 
+    # Load existing open bets to skip duplicate markets
+    open_market_ids = {b["market_id"] for b in sb.table("bets").select("market_id").eq("resolved", False).execute().data}
+
     for m in markets[:15]:
         q = m.get("question", "")
+        cid = m.get("condition_id", "")
         price = float(m.get("tokens", [{}])[0].get("price", 0.5))
+
+        if cid in open_market_ids:
+            print(f"  Skipping duplicate open bet: {q[:50]}")
+            continue
+
         print(f"\nAnalyzing: {q[:60]}")
-        time.sleep(4)  # ~10k TPM / 3 calls per market = ~4s pacing
+        time.sleep(3)  # pace before macro call
 
         macro = ask(macro_prompt, f"Market: {q}")
+        time.sleep(2)  # pace before domain call
         domain_raw = ask(domains_prompt, f"Market: {q}\nMacro brief: {macro}")
 
         try:
@@ -108,9 +122,11 @@ def run():
             print(f"  Skipped: {domain_result.get('reason', 'domain filter rejected')}")
             continue
 
-        domain = domain_raw
+        # Pass clean JSON summary to analyst, not raw LLM output
+        domain_summary = json.dumps(domain_result)
+        time.sleep(2)  # pace before analyst call
 
-        raw = ask(analyst_prompt, f"Market: {q}\nMarket price: {price}\nMacro: {macro}\nDomain: {domain}")
+        raw = ask(analyst_prompt, f"Market: {q}\nMarket price: {price}\nMacro: {macro}\nDomain: {domain_summary}")
 
         try:
             start = raw.find("{")
@@ -118,14 +134,15 @@ def run():
             result = json.loads(raw[start:end])
             if result.get("place_paper_bet"):
                 sb.table("bets").insert({
-                    "market_id": m.get("condition_id",""),
+                    "market_id": cid,
                     "question": q,
                     "predicted_prob": result["final_prob"],
                     "market_price": price,
                     "resolved": False,
                     "created_at": datetime.now(timezone.utc).isoformat()
                 }).execute()
-                print(f"✓ Paper bet logged | edge: {result.get('edge'):.3f}")
+                edge_val = result.get("edge") or 0
+                print(f"✓ Paper bet logged | edge: {edge_val:.3f}")
             else:
                 print(f"No edge found")
         except Exception as e:

@@ -14,6 +14,6 @@ Output JSON only:
   "contrarian_prob": float,
   "final_prob": float,
   "confidence": float,
-  "edge": float (final_prob minus market_price),
+  "edge": float (final_prob minus market_price — positive means market underpriced YES, negative means overpriced),
   "place_paper_bet": boolean (true if abs(edge) > 0.07 and confidence > 0.65)
 }
