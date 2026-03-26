@@ -8,3 +8,9 @@ run.log
 _bmad/
 _bmad-output/
 node_modules/
+.github/skills/
+.gitnexus
+.claude/
+AGENTS.md
+CLAUDE.md
+results.tsv

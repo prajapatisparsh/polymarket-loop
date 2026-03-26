@@ -10,7 +10,7 @@ No human intervention after setup. No real money in Phase 1.
 ## Stack
 - **autoresearch-anything** — the loop engine (cloned at `~/autoresearch-anything`). Generates `setup.md` which tells the AI agent how to run the improvement loop. Loop pattern: mutate prompt files → run agents → measure Brier score → keep if improved, git revert if not.
 - **OpenClaw** — multi-subagent orchestration (Phase 2)
-- **Polymarket CLOB API** — public read-only API, no auth needed. Base URL: `https://clob.polymarket.com`
+- **Polymarket Gamma API** — active market data. Base URL: `https://gamma-api.polymarket.com/markets`. Filters: `active=true`, `closed=false`, `tag_slug={tag}`. CLOB API (`https://clob.polymarket.com`) used only for resolving closed bets.
 - **Groq API** — LLM inference using `moonshotai/kimi-k2-instruct-0905`
 - **Supabase** — stores paper bets, resolved results, Brier score log, strategy versions
 - **WSL cron** — runs the loop only at night (11pm → 6am)
@@ -61,7 +61,7 @@ Domain filter. Given a market + macro brief, outputs JSON:
   "reason": string
 }
 ```
-Only proceeds if: event is 2025+, domain is relevant, liquidity is medium/high.
+Only proceeds if: event is **2026+**, domain is relevant, liquidity is medium/high.
 
 ### prompts/analyst.md — Layer 3
 Dual contrarian + consensus analyst. Outputs JSON only:
@@ -107,9 +107,9 @@ RLS is disabled on both tables.
 ---
 
 ## Fitness Function
-Brier score = mean((predicted_prob - outcome)^2) over last 15 resolved bets.
+Brier score = mean((predicted_prob - outcome)^2) over last **15** resolved bets.
 Lower is better. This is what the autoresearch loop optimizes.
-eval.py prints: `brier_score: 0.2314`
+`eval.py` prints: `brier_score: 0.0333` (current)
 If fewer than 3 resolved bets exist, prints: `brier_score: not_enough_data`
 
 ---
@@ -130,14 +130,20 @@ The AI coding agent (Copilot Agent) reads setup.md and runs this loop autonomous
 ---
 
 ## run.py Logic
-1. Call eval_resolved() — polls Polymarket for resolved markets, updates Supabase bets
-2. Fetch markets from Polymarket CLOB across tags: politics, crypto, economics, science, climate
-3. For each market (up to 20):
+1. Call `eval_resolved()` — polls Polymarket CLOB for closed markets, updates Supabase bets with `outcome` and `resolved_at`
+2. Call `calibration_summary()` — computes directional accuracy + avg Brier over all resolved bets; returns a single-line note injected into every analyst call
+3. Load `open_market_ids` — set of condition IDs already in open bets, used to skip duplicates
+4. Fetch markets from **Gamma API** across tags: politics, crypto, economics, science, climate. Deduped by `conditionId`, filtered to future-only (end date > now). Normalized fields: `condition_id`, `question`, `tokens[0].price`, `_end_date`, `_days_left`, `_spread`, `_volume`
+5. For each market (up to **15**), skipping any in `open_market_ids`:
+   - `time.sleep(3)` before macro call (rate-limit pacing)
    - Call macro.md agent via Groq
-   - Call domains.md agent via Groq — skip if proceed: false
+   - `time.sleep(2)` before domains call
+   - Call domains.md agent via Groq — skip if `proceed: false`
+   - `time.sleep(2)` before analyst call
+   - Build enriched market context: question, market price, days until close, bid-ask spread, volume, macro output, domain JSON, calibration note
    - Call analyst.md agent via Groq
-   - If place_paper_bet: true → insert into Supabase bets table
-4. Print results
+   - If `place_paper_bet: true` → insert into Supabase `bets` table
+6. Print results per market
 
 ---
 
@@ -161,11 +167,10 @@ export $(cat .env | xargs)
 
 ---
 
-## Current Issues To Fix
-1. `run.py` still has SKIP_KEYWORDS reference that needs to be removed — domain filter agent should handle filtering, not keyword matching
-2. `run.py` needs `from dotenv import load_dotenv` + `load_dotenv()` at the top for Windows
-3. Polymarket API returns old 2023/2024 markets mixed in — domains.md agent now rejects non-2025+ events
-4. WSL cron not set up yet — do after Windows development is complete
+## Current Status
+- All Phase 1 fixes shipped (commit `2c4bfd2`): CLOB error handling, domain passthrough, edge crash guard, dedup, rate-limit pacing, year filter
+- Latest eval: `brier_score: 0.0333` (last run Mar 26 2026)
+- WSL cron not set up yet — do after Windows development is complete
 
 ---
 

@@ -30,21 +30,40 @@ def ask(system, user, retries=5):
             print(f"  Rate limit hit, retrying in {wait}s...")
             time.sleep(wait)
 
+GAMING_BLACKLIST = [
+    "gta vi", "gta 6", "grand theft auto", "before gta", "rockstar",
+    "call of duty", "cod ", "minecraft", "fortnite", "video game release",
+    "gaming", "game release",
+]
+
+def _iter_raw_markets(tag=None, keyword=None):
+    """Yield raw market dicts from Gamma API by tag slug or keyword search."""
+    params = {"active": "true", "closed": "false", "limit": 100}
+    if tag:
+        params["tag_slug"] = tag
+    if keyword:
+        params["q"] = keyword
+    r = requests.get("https://gamma-api.polymarket.com/markets", params=params, timeout=10)
+    data = r.json() if r.ok else []
+    if not isinstance(data, list):
+        data = data.get("markets", [])
+    yield from data
+
 def fetch_markets():
     # Use Gamma API — it supports active/closed filters and returns current markets
-    tags = ["politics", "crypto", "economics", "science", "climate"]
+    # Tags: standard categories + bitcoin for BTC price prediction markets
+    tags = ["politics", "crypto", "economics", "science", "climate", "bitcoin"]
     seen = set()
     markets = []
     now = datetime.now(timezone.utc)
-    for tag in tags:
-        r = requests.get("https://gamma-api.polymarket.com/markets",
-            params={"active": "true", "closed": "false", "tag_slug": tag, "limit": 100},
-            timeout=10)
-        data = r.json() if r.ok else []
-        if not isinstance(data, list):
-            data = data.get("markets", [])
-        for m in data:
+
+    # Build source list: tag-based scans + dedicated Bitcoin price keyword search
+    sources = [(tag, None) for tag in tags] + [(None, "bitcoin price")]
+
+    for tag, keyword in sources:
+        for m in _iter_raw_markets(tag=tag, keyword=keyword):
             cid = m.get("conditionId")
+            q_lower = m.get("question", "").lower()
             end_raw = m.get("endDateIso") or m.get("endDate") or ""
             if end_raw:
                 try:
@@ -57,17 +76,54 @@ def fetch_markets():
                     pass
             if not cid or cid in seen:
                 continue
+            # Skip gaming/entertainment noise (GTA VI benchmark questions etc.)
+            if any(kw in q_lower for kw in GAMING_BLACKLIST):
+                continue
             seen.add(cid)
             # normalize to the field names run() expects
             price_raw = m.get("lastTradePrice") or m.get("bestAsk") or 0.5
+            best_bid = float(m.get("bestBid") or price_raw)
+            best_ask = float(m.get("bestAsk") or price_raw)
+            spread = round(best_ask - best_bid, 4)
+            volume = float(m.get("volumeClob") or m.get("volume") or 0)
+            # days until close (0 if unknown)
+            days_left = 0
+            if end_raw:
+                try:
+                    end_dt = datetime.fromisoformat(end_raw.replace("Z", "+00:00"))
+                    if end_dt.tzinfo is None:
+                        end_dt = end_dt.replace(tzinfo=timezone.utc)
+                    days_left = max(0, (end_dt - now).days)
+                except ValueError:
+                    pass
             markets.append({
                 "condition_id": cid,
                 "question": m.get("question", ""),
                 "tokens": [{"price": float(price_raw)}],
                 "_end_date": end_raw[:10],
+                "_days_left": days_left,
+                "_spread": spread,
+                "_volume": volume,
             })
     print(f"Fetched {len(markets)} relevant markets (future/active only)")
     return markets
+
+def calibration_summary():
+    """
+    Compute directional accuracy from resolved bets to ground the analyst.
+    Returns a single-line calibration note passed as context to the analyst agent.
+    """
+    resolved = sb.table("bets").select("*").eq("resolved", True).execute().data
+    if not resolved:
+        return "No resolved bets yet — treat all confidence levels as provisional."
+    correct = sum(1 for b in resolved
+                  if (b["predicted_prob"] >= 0.5 and b["outcome"] == 1.0) or
+                     (b["predicted_prob"] < 0.5 and b["outcome"] == 0.0))
+    total = len(resolved)
+    avg_brier = sum((b["predicted_prob"] - b["outcome"]) ** 2 for b in resolved) / total
+    return (f"Your past {total} resolved bets: {correct}/{total} directionally correct "
+            f"({100*correct//total}%), avg Brier={avg_brier:.4f}. "
+            f"Recalibrate if overconfident (high confidence but wrong) or underconfident (hedging clear signals).")
 
 def eval_resolved():
     unresolved = sb.table("bets").select("*").eq("resolved", False).execute().data
@@ -92,6 +148,9 @@ def run():
     eval_resolved()
     markets = fetch_markets()
 
+    # Load calibration feedback once — passed to every analyst call
+    cal_note = calibration_summary()
+
     # Load existing open bets to skip duplicate markets
     open_market_ids = {b["market_id"] for b in sb.table("bets").select("market_id").eq("resolved", False).execute().data}
 
@@ -99,6 +158,9 @@ def run():
         q = m.get("question", "")
         cid = m.get("condition_id", "")
         price = float(m.get("tokens", [{}])[0].get("price", 0.5))
+        days_left = m.get("_days_left", 0)
+        spread = m.get("_spread", 0.0)
+        volume = m.get("_volume", 0.0)
 
         if cid in open_market_ids:
             print(f"  Skipping duplicate open bet: {q[:50]}")
@@ -126,7 +188,19 @@ def run():
         domain_summary = json.dumps(domain_result)
         time.sleep(2)  # pace before analyst call
 
-        raw = ask(analyst_prompt, f"Market: {q}\nMarket price: {price}\nMacro: {macro}\nDomain: {domain_summary}")
+        # Build enriched market context with all innovation signals
+        market_context = (
+            f"Market: {q}\n"
+            f"Market price (YES): {price}\n"
+            f"Days until close: {days_left}\n"
+            f"Bid-ask spread: {spread} (wide=uncertain crowd, tight=confident crowd)\n"
+            f"Volume traded: ${volume:,.0f} (high=liquid, low=thin)\n"
+            f"Macro: {macro}\n"
+            f"Domain: {domain_summary}\n"
+            f"Calibration note: {cal_note}"
+        )
+
+        raw = ask(analyst_prompt, market_context)
 
         try:
             start = raw.find("{")
