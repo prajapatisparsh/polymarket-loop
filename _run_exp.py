@@ -1,10 +1,10 @@
 """Commit exp, run eval, log result, revert if needed."""
 import subprocess, sys, os, re
 
-EXP_NUM = 32
-EXP_MSG = "exp32: remove edge and place_paper_bet from output"
-EXP_DESC = "exp32: remove edge+place_paper_bet, focus on prob only"
-BEST = 0.0484
+EXP_NUM = 35
+EXP_MSG = "exp35: remove step 4 market comparison (combined)"
+EXP_DESC = "exp35: remove step 4 market comparison combined with 5pp extremization and stripped output"
+BEST = 0.0468
 
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 

@@ -6,7 +6,6 @@ PROCESS:
 1. Read the macro context carefully. What does the evidence say about this outcome?
 2. Estimate a base rate: what fraction of similar historical situations resolved YES?
 3. Adjust for the specific evidence presented. Strong evidence should move you far from 50%.
-4. Compare your estimate to the current market price. Where do you disagree and why?
 
 KEY RULES:
 - When evidence strongly favors one outcome AND the market price already agrees, your probability should be at least as extreme as the market price.

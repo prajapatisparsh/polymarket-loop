@@ -1,19 +1,19 @@
-# Exp31 Result
+# Exp34 Result
 
-- **commit**: 267673a
-- **brier_score**: 0.0492
-- **best_so_far**: 0.0484
+- **commit**: 1718760
+- **brier_score**: 0.0754
+- **best_so_far**: 0.0468
 - **improved**: False
 - **gate**: REJECT
 - **status**: discard
 - **action**: REVERTED
-- **current_head**: cb498f0
+- **current_head**: 25ebc7c
 
 ## Confidence Bands
 
-  0.50-0.60: n=1, accuracy=100%
-  0.60-0.70: n=4, accuracy=100%
-  0.70-0.80: n=1, accuracy=100%
+  0.50-0.60: n=2, accuracy=50%
+  0.60-0.70: n=2, accuracy=100%
+  0.70-0.80: n=1, accuracy=0%
 
 ## Last 30 lines
 
@@ -25,14 +25,14 @@ POLYMARKET EVAL HARNESS SUMMARY
 ============================================================
 
 [BACKTEST]  n=20
-  Brier score : 0.0492
-  ECE         : 0.1775
-  Prompt hash : ec9242083b43
+  Brier score : 0.0754
+  ECE         : 0.162
+  Prompt hash : c5f6909f880f
   Confidence bands:
-    0.50-0.60: n=1, accuracy=100%
-    0.60-0.70: n=4, accuracy=100%
-    0.70-0.80: n=1, accuracy=100%
-    0.80+: n=14, accuracy=100%
+    0.50-0.60: n=2, accuracy=50%
+    0.60-0.70: n=2, accuracy=100%
+    0.70-0.80: n=1, accuracy=0%
+    0.80+: n=15, accuracy=100%
 
   Mutation gate: [REJECT]
 
