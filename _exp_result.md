@@ -1,19 +1,19 @@
-# Exp28 Result
+# Exp31 Result
 
-- **commit**: 3118dc4
-- **brier_score**: 0.0509
-- **best_so_far**: 0.0504
+- **commit**: 267673a
+- **brier_score**: 0.0492
+- **best_so_far**: 0.0484
 - **improved**: False
-- **gate**: ACCEPT
+- **gate**: REJECT
 - **status**: discard
 - **action**: REVERTED
-- **current_head**: bf30c83
+- **current_head**: cb498f0
 
 ## Confidence Bands
 
-  0.50-0.60: n=2, accuracy=100%
-  0.60-0.70: n=1, accuracy=100%
-  0.70-0.80: n=4, accuracy=100%
+  0.50-0.60: n=1, accuracy=100%
+  0.60-0.70: n=4, accuracy=100%
+  0.70-0.80: n=1, accuracy=100%
 
 ## Last 30 lines
 
@@ -25,16 +25,16 @@ POLYMARKET EVAL HARNESS SUMMARY
 ============================================================
 
 [BACKTEST]  n=20
-  Brier score : 0.0509
-  ECE         : 0.1885
-  Prompt hash : 2fc29eede4ca
+  Brier score : 0.0492
+  ECE         : 0.1775
+  Prompt hash : ec9242083b43
   Confidence bands:
-    0.50-0.60: n=2, accuracy=100%
-    0.60-0.70: n=1, accuracy=100%
-    0.70-0.80: n=4, accuracy=100%
-    0.80+: n=13, accuracy=100%
+    0.50-0.60: n=1, accuracy=100%
+    0.60-0.70: n=4, accuracy=100%
+    0.70-0.80: n=1, accuracy=100%
+    0.80+: n=14, accuracy=100%
 
-  Mutation gate: [ACCEPT]
+  Mutation gate: [REJECT]
 
 Traceback (most recent call last):
   File "C:\Users\spars\Desktop\polymarket-loop\eval\harness.py", line 469, in <module>
