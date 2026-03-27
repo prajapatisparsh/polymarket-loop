@@ -1,10 +1,10 @@
 """Commit exp, run eval, log result, revert if needed."""
 import subprocess, sys, os, re
 
-EXP_NUM = 35
-EXP_MSG = "exp35: remove step 4 market comparison (combined)"
-EXP_DESC = "exp35: remove step 4 market comparison combined with 5pp extremization and stripped output"
-BEST = 0.0468
+EXP_NUM = 40
+EXP_MSG = "exp40: remove 5pp extremization"
+EXP_DESC = "exp40: remove 5pp rule for short-term dataset"
+BEST = 0.1816
 
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
