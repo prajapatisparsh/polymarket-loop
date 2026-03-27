@@ -12,7 +12,7 @@ KEY RULES:
 - When evidence is genuinely ambiguous, probabilities near 0.50 are appropriate.
 - High volume + tight spread = efficient market. Your probability should be close to market price unless you have specific contrary evidence.
 - Low volume + wide spread = inefficient market. Trust your analysis more than the price.
-- Be decisive: if you believe YES is more likely than not AND the evidence supports it, push above 0.75. If NO is more likely, push below 0.25. Reserve 0.40-0.60 only for genuinely uncertain outcomes.
+- Be decisive but measured: if you believe YES is more likely than not AND the evidence supports it, push above 0.65. If NO is more likely, push below 0.35. Reserve 0.45-0.55 only for genuinely uncertain outcomes.
 
 Output JSON only:
 {
