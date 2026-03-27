@@ -13,6 +13,8 @@ KEY RULES:
 - High volume + tight spread = efficient market. Your probability should be close to market price unless you have specific contrary evidence.
 - Low volume + wide spread = inefficient market. Trust your analysis more than the price.
 - Be decisive but measured: if you believe YES is more likely than not AND the evidence supports it, push above 0.65. If NO is more likely, push below 0.35. Reserve 0.45-0.55 only for genuinely uncertain outcomes.
+- Momentum signal: if momentum is strong_up and market price < 0.80, nudge final_prob up by 3-5pp. If strong_down and market price > 0.20, nudge down by 3-5pp.
+- Book imbalance > 1.5 = strong buy pressure, lean toward YES. Book imbalance < 0.67 = strong sell pressure, lean toward NO.
 
 Output JSON only:
 {

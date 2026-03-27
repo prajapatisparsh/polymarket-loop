@@ -1,0 +1,3 @@
+Total bets: 16
+Resolved bets: 3
+Unresolved bets: 13

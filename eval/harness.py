@@ -35,7 +35,7 @@ sb = create_client(os.environ["SUPABASE_URL"], os.environ["SUPABASE_KEY"])
 groq_client = Groq(api_key=os.environ["GROQ_API_KEY"])
 MODEL = "moonshotai/kimi-k2-instruct-0905"
 
-BACKTEST_PATH = os.path.join(os.path.dirname(__file__), "backtest.json")
+# BACKTEST_PATH removed — testing against live Supabase data
 
 # Below this sample count, refuse to make accept/reject calls.
 MIN_SAMPLE_FOR_OPTIMIZATION = 10
@@ -218,13 +218,25 @@ def _llm_predict(analyst_prompt: str, context: str) -> float | None:
 
 def run_backtest() -> dict:
     """
-    Run the current analyst prompt against every entry in backtest.json.
+    Run the current analyst prompt against the 20 most recent resolved live bets.
     Inserts results into eval_runs. Returns full metrics.
     """
-    if not os.path.exists(BACKTEST_PATH):
-        return {"split": "backtest", "error": f"backtest.json not found at {BACKTEST_PATH}"}
+    try:
+        dataset = (
+            sb.table("bets")
+            .select("*")
+            .eq("resolved", True)
+            .order("resolved_at", desc=True)
+            .limit(100)
+            .execute()
+        ).data
+        dataset = [d for d in dataset if d.get("market_context") is not None][:20]
+    except Exception as e:
+        return {"split": "backtest", "error": f"failed to load historical bets: {e}"}
 
-    dataset: list[dict] = json.load(open(BACKTEST_PATH, encoding="utf-8"))
+    if not dataset:
+        return {"split": "backtest", "error": "No resolved historical bets with market_context found."}
+
     analyst_prompt = ""
     try:
         analyst_prompt = open("prompts/analyst.md", encoding="utf-8").read()
@@ -238,15 +250,38 @@ def run_backtest() -> dict:
     rows_to_insert: list[dict] = []
 
     for entry in dataset:
+        ctx = entry.get("market_context", {})
+        
+        momentum = ctx.get("momentum", {})
+        momentum_str = ""
+        if momentum:
+            momentum_str = (
+                f"\nPrice momentum (24h): {momentum.get('24h_change_pct', 'n/a')}% "
+                f"[{momentum.get('momentum', 'unknown')}]"
+                f" | 1-week change: {momentum.get('1w_change_pct', 'n/a')}%"
+                f"\nRecent price path: {momentum.get('recent_prices', [])}"
+            )
+            
+        depth = ctx.get("depth", {})
+        depth_str = ""
+        if depth:
+            depth_str = (
+                f"\nOrder book imbalance: {depth.get('book_imbalance', 'n/a')} "
+                f"(>1=buy pressure, <1=sell pressure)"
+                f"\nTop bids: {depth.get('top_bids', [])} | Top asks: {depth.get('top_asks', [])}"
+            )
+            
         market_ctx = (
             f"Market: {entry['question']}\n"
             f"Market price (YES): {entry['market_price']}\n"
-            f"Days until close: {entry.get('days_left', 0)}\n"
-            f"Bid-ask spread: {entry.get('spread', 0.02)}\n"
-            f"Volume traded: ${entry.get('volume', 100000):,.0f}\n"
-            f"Macro: {entry.get('macro_context', '')}\n"
-            f"Domain: {json.dumps(entry.get('domain', {}))}\n"
-            f"Calibration note: Historical backtest entry — treat as a live market."
+            f"Days until close: {ctx.get('days_left', 0)}\n"
+            f"Bid-ask spread: {ctx.get('spread', 0.02)}\n"
+            f"Volume traded: ${ctx.get('volume', 100000):,.0f}\n"
+            f"{momentum_str}"
+            f"{depth_str}\n"
+            f"Macro: {ctx.get('macro', '')}\n"
+            f"Domain: {ctx.get('domain_summary', '{}')}\n"
+            f"Calibration note: Historical live bet rerunning — treat as open market."
         )
 
         p = _llm_predict(analyst_prompt, market_ctx)

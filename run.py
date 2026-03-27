@@ -347,6 +347,18 @@ def run():
         domain_summary = json.dumps(domain_result)
         time.sleep(2)  # pace before analyst call
 
+        # Build a structured payload to save to DB so we can evaluate it natively later
+        context_json = {
+            "spread": spread,
+            "volume": volume,
+            "days_left": days_left,
+            "momentum": momentum,
+            "depth": depth,
+            "macro": macro,
+            "domain_summary": domain_summary,
+            "calibration_note": cal_note
+        }
+
         # Build enriched market context with all innovation signals
         momentum_str = ""
         if momentum:
@@ -364,7 +376,7 @@ def run():
                 f"\nTop bids: {depth.get('top_bids', [])} | Top asks: {depth.get('top_asks', [])}"
             )
 
-        market_context = (
+        market_context_prompt = (
             f"Market: {q}\n"
             f"Market price (YES): {price}\n"
             f"Days until close: {days_left}\n"
@@ -377,7 +389,7 @@ def run():
             f"Calibration note: {cal_note}"
         )
 
-        raw = ask(analyst_prompt, market_context)
+        raw = ask(analyst_prompt, market_context_prompt)
 
         try:
             start = raw.find("{")
@@ -393,6 +405,7 @@ def run():
                     "created_at": datetime.now(timezone.utc).isoformat(),
                     "eval_split": "production",
                     "prompt_hash": _prompt_hash(),
+                    "market_context": context_json,
                 }).execute()
                 edge_val = result.get("edge") or 0
                 print(f"✓ Paper bet logged | edge: {edge_val:.3f}")

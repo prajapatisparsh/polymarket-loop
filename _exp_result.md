@@ -1,38 +1,39 @@
-# Exp40 Result
+# Exp44 Result
 
-- **commit**: 0e890f9
-- **brier_score**: 0.091
-- **best_so_far**: 0.1816
-- **improved**: True
+- **commit**: 3ac4885
+- **brier_score**: 0.0681
+- **best_so_far**: 0.0665
+- **improved**: False
 - **gate**: ACCEPT
-- **status**: keep
-- **action**: KEPT
-- **current_head**: 0e890f9
+- **status**: discard
+- **action**: REVERTED
+- **current_head**: edc5a01
 
 ## Confidence Bands
 
-  0.50-0.60: n=3, accuracy=67%
+  0.50-0.60: n=2, accuracy=100%
   0.60-0.70: n=3, accuracy=100%
-  0.70-0.80: n=3, accuracy=67%
+  0.70-0.80: n=6, accuracy=100%
 
 ## Last 30 lines
 
 ```
-Running backtest eval (calls LLM on 20 frozen historical markets)...
+  [backtest] skipped (LLM error): Will Russia and Ukraine sign a formal ceasefire ag
+  [backtest] skipped (LLM error): Will Tesla deliver fewer than 400,000 vehicles in 
 
 ============================================================
 POLYMARKET EVAL HARNESS SUMMARY
 ============================================================
 
-[BACKTEST]  n=20
-  Brier score : 0.091
-  ECE         : 0.199
-  Prompt hash : f7fa8a2a75b5
+[BACKTEST]  n=18
+  Brier score : 0.0681
+  ECE         : 0.1783
+  Prompt hash : f3a00f38062c
   Confidence bands:
-    0.50-0.60: n=3, accuracy=67%
+    0.50-0.60: n=2, accuracy=100%
     0.60-0.70: n=3, accuracy=100%
-    0.70-0.80: n=3, accuracy=67%
-    0.80+: n=11, accuracy=100%
+    0.70-0.80: n=6, accuracy=100%
+    0.80+: n=7, accuracy=100%
 
   Mutation gate: [ACCEPT]
 
