@@ -1,0 +1,9 @@
+=== polymarket-loop status ===
+
+Total bets:    0
+  Real bets:   0
+  Seed bets:   0
+  Resolved:    0
+  Open:        0
+
+Brier score:   not enough data

@@ -1,0 +1,174 @@
+======================================================================
+TAG: bitcoin
+======================================================================
+  Count: 15
+  Q: BitBoy convicted?
+     vol=266304.8664849969 | end=2026-03-31
+  Q: Russia-Ukraine Ceasefire before GTA VI?
+     vol=1403763.183514996 | end=2026-07-31
+  Q: New Rihanna Album before GTA VI?
+     vol=675679.0374020021 | end=2026-07-31
+  Q: New Playboi Carti Album before GTA VI?
+     vol=710605.6981039952 | end=2026-07-31
+  Q: Will Jesus Christ return before GTA VI?
+     vol=10333740.948449071 | end=2026-07-31
+  Q: Trump out as President before GTA VI?
+     vol=559958.9090080081 | end=2026-07-31
+  Q: Will China invades Taiwan before GTA VI?
+     vol=1513910.9070490424 | end=2026-07-31
+  Q: Will bitcoin hit $1m before GTA VI?
+     vol=3792925.333140686 | end=2026-07-31
+  Q: GTA VI released before June 2026?
+     vol=12928714.441008994 | end=2026-05-31
+  Q: Will Harvey Weinstein be sentenced to no prison time?
+     vol=291983.92579400004 | end=2025-12-31
+  Q: Will Harvey Weinstein be sentenced to less than 5 years in prison?
+     vol=48834.497749999966 | end=2025-12-31
+  Q: Will Harvey Weinstein be sentenced to between 5 and 10 years in prison?
+     vol=34829.71035299999 | end=2025-12-31
+  Q: Will Harvey Weinstein be sentenced to between 10 and 20 years in prison?
+     vol=120976.63740000002 | end=2025-12-31
+  Q: Will Harvey Weinstein be sentenced to between 20 and 30 years in prison?
+     vol=151177.9184420003 | end=2025-12-31
+  Q: Will Harvey Weinstein be sentenced to more than 30 years in prison?
+     vol=34603.47689300007 | end=2025-12-31
+
+======================================================================
+TAG: crypto
+======================================================================
+  Count: 15
+  Q: BitBoy convicted?
+     vol=266304.8664849969 | end=2026-03-31
+  Q: Russia-Ukraine Ceasefire before GTA VI?
+     vol=1403763.183514996 | end=2026-07-31
+  Q: New Rihanna Album before GTA VI?
+     vol=675679.0374020021 | end=2026-07-31
+  Q: New Playboi Carti Album before GTA VI?
+     vol=710605.6981039952 | end=2026-07-31
+  Q: Will Jesus Christ return before GTA VI?
+     vol=10333740.948449071 | end=2026-07-31
+  Q: Trump out as President before GTA VI?
+     vol=559958.9090080081 | end=2026-07-31
+  Q: Will China invades Taiwan before GTA VI?
+     vol=1513910.9070490424 | end=2026-07-31
+  Q: Will bitcoin hit $1m before GTA VI?
+     vol=3792925.333140686 | end=2026-07-31
+  Q: GTA VI released before June 2026?
+     vol=12928714.441008994 | end=2026-05-31
+  Q: Will Harvey Weinstein be sentenced to no prison time?
+     vol=291983.92579400004 | end=2025-12-31
+  Q: Will Harvey Weinstein be sentenced to less than 5 years in prison?
+     vol=48834.497749999966 | end=2025-12-31
+  Q: Will Harvey Weinstein be sentenced to between 5 and 10 years in prison?
+     vol=34829.71035299999 | end=2025-12-31
+  Q: Will Harvey Weinstein be sentenced to between 10 and 20 years in prison?
+     vol=120976.63740000002 | end=2025-12-31
+  Q: Will Harvey Weinstein be sentenced to between 20 and 30 years in prison?
+     vol=151177.9184420003 | end=2025-12-31
+  Q: Will Harvey Weinstein be sentenced to more than 30 years in prison?
+     vol=34603.47689300007 | end=2025-12-31
+
+======================================================================
+KW: bitcoin price
+======================================================================
+  Count: 15
+  Q: BitBoy convicted?
+     vol=266304.8664849969 | end=2026-03-31
+  Q: Russia-Ukraine Ceasefire before GTA VI?
+     vol=1403763.183514996 | end=2026-07-31
+  Q: New Rihanna Album before GTA VI?
+     vol=675679.0374020021 | end=2026-07-31
+  Q: New Playboi Carti Album before GTA VI?
+     vol=710605.6981039952 | end=2026-07-31
+  Q: Will Jesus Christ return before GTA VI?
+     vol=10333740.948449071 | end=2026-07-31
+  Q: Trump out as President before GTA VI?
+     vol=559958.9090080081 | end=2026-07-31
+  Q: Will China invades Taiwan before GTA VI?
+     vol=1513910.9070490424 | end=2026-07-31
+  Q: Will bitcoin hit $1m before GTA VI?
+     vol=3792925.333140686 | end=2026-07-31
+  Q: GTA VI released before June 2026?
+     vol=12928714.441008994 | end=2026-05-31
+  Q: Will Harvey Weinstein be sentenced to no prison time?
+     vol=291983.92579400004 | end=2025-12-31
+  Q: Will Harvey Weinstein be sentenced to less than 5 years in prison?
+     vol=48834.497749999966 | end=2025-12-31
+  Q: Will Harvey Weinstein be sentenced to between 5 and 10 years in prison?
+     vol=34829.71035299999 | end=2025-12-31
+  Q: Will Harvey Weinstein be sentenced to between 10 and 20 years in prison?
+     vol=120976.63740000002 | end=2025-12-31
+  Q: Will Harvey Weinstein be sentenced to between 20 and 30 years in prison?
+     vol=151177.9184420003 | end=2025-12-31
+  Q: Will Harvey Weinstein be sentenced to more than 30 years in prison?
+     vol=34603.47689300007 | end=2025-12-31
+
+======================================================================
+KW: 5 minute bitcoin
+======================================================================
+  Count: 15
+  Q: BitBoy convicted?
+     vol=266304.8664849969 | end=2026-03-31
+  Q: Russia-Ukraine Ceasefire before GTA VI?
+     vol=1403763.183514996 | end=2026-07-31
+  Q: New Rihanna Album before GTA VI?
+     vol=675679.0374020021 | end=2026-07-31
+  Q: New Playboi Carti Album before GTA VI?
+     vol=710605.6981039952 | end=2026-07-31
+  Q: Will Jesus Christ return before GTA VI?
+     vol=10333740.948449071 | end=2026-07-31
+  Q: Trump out as President before GTA VI?
+     vol=559958.9090080081 | end=2026-07-31
+  Q: Will China invades Taiwan before GTA VI?
+     vol=1513910.9070490424 | end=2026-07-31
+  Q: Will bitcoin hit $1m before GTA VI?
+     vol=3792925.333140686 | end=2026-07-31
+  Q: GTA VI released before June 2026?
+     vol=12928714.441008994 | end=2026-05-31
+  Q: Will Harvey Weinstein be sentenced to no prison time?
+     vol=291983.92579400004 | end=2025-12-31
+  Q: Will Harvey Weinstein be sentenced to less than 5 years in prison?
+     vol=48834.497749999966 | end=2025-12-31
+  Q: Will Harvey Weinstein be sentenced to between 5 and 10 years in prison?
+     vol=34829.71035299999 | end=2025-12-31
+  Q: Will Harvey Weinstein be sentenced to between 10 and 20 years in prison?
+     vol=120976.63740000002 | end=2025-12-31
+  Q: Will Harvey Weinstein be sentenced to between 20 and 30 years in prison?
+     vol=151177.9184420003 | end=2025-12-31
+  Q: Will Harvey Weinstein be sentenced to more than 30 years in prison?
+     vol=34603.47689300007 | end=2025-12-31
+
+======================================================================
+KW: btc
+======================================================================
+  Count: 15
+  Q: BitBoy convicted?
+     vol=266304.8664849969 | end=2026-03-31
+  Q: Russia-Ukraine Ceasefire before GTA VI?
+     vol=1403763.183514996 | end=2026-07-31
+  Q: New Rihanna Album before GTA VI?
+     vol=675679.0374020021 | end=2026-07-31
+  Q: New Playboi Carti Album before GTA VI?
+     vol=710605.6981039952 | end=2026-07-31
+  Q: Will Jesus Christ return before GTA VI?
+     vol=10333740.948449071 | end=2026-07-31
+  Q: Trump out as President before GTA VI?
+     vol=559958.9090080081 | end=2026-07-31
+  Q: Will China invades Taiwan before GTA VI?
+     vol=1513910.9070490424 | end=2026-07-31
+  Q: Will bitcoin hit $1m before GTA VI?
+     vol=3792925.333140686 | end=2026-07-31
+  Q: GTA VI released before June 2026?
+     vol=12928714.441008994 | end=2026-05-31
+  Q: Will Harvey Weinstein be sentenced to no prison time?
+     vol=291983.92579400004 | end=2025-12-31
+  Q: Will Harvey Weinstein be sentenced to less than 5 years in prison?
+     vol=48834.497749999966 | end=2025-12-31
+  Q: Will Harvey Weinstein be sentenced to between 5 and 10 years in prison?
+     vol=34829.71035299999 | end=2025-12-31
+  Q: Will Harvey Weinstein be sentenced to between 10 and 20 years in prison?
+     vol=120976.63740000002 | end=2025-12-31
+  Q: Will Harvey Weinstein be sentenced to between 20 and 30 years in prison?
+     vol=151177.9184420003 | end=2025-12-31
+  Q: Will Harvey Weinstein be sentenced to more than 30 years in prison?
+     vol=34603.47689300007 | end=2025-12-31

@@ -1,0 +1,1231 @@
+=== DEBUGGING EVENT RESPONSE FORMAT ===
+Type: <class 'dict'>
+Keys: ['type', 'error']
+Sample: {
+  "type": "validation error",
+  "error": "order fields are not valid"
+}
+
+=== EVENTS with tag_id for Bitcoin ===
+
+tag_id=101531: 0 events
+
+tag_id=101944: 0 events
+
+=== ALL ACTIVE EVENTS (paginated) ===
+Total active events fetched: 1000
+Crypto-related: 236
+
+  EVENT: MicroStrategy sells any Bitcoin by ___ ? (4 markets)
+    [?] MicroStrategy sells any Bitcoin in 2025?
+    [?] MicroStrategy sells any Bitcoin by December 31, 2026?
+    [?] MicroStrategy sells any Bitcoin by March 31, 2026?
+    [?] MicroStrategy sells any Bitcoin by June 30, 2026?
+
+  EVENT: Kraken IPO by ___ ? (4 markets)
+    [?] Kraken IPO in 2025?
+    [?] Kraken IPO by March 31, 2026?
+    [?] Kraken IPO by December 31, 2026?
+    [?] Kraken IPO by June 30, 2026?
+
+  EVENT: BitBoy convicted? (1 markets)
+    [?] BitBoy convicted?
+
+  EVENT: Taylor Swift pregnant in 2025? (3 markets)
+    [?] Taylor Swift pregnant in 2025?
+    [?] Taylor Swift pregnant by March 31?
+    [?] Taylor Swift pregnant before 2027?
+
+  EVENT: What will happen before GTA VI? (9 markets)
+    [?] Russia-Ukraine Ceasefire before GTA VI?
+    [?] New Rihanna Album before GTA VI?
+    [?] New Playboi Carti Album before GTA VI?
+    [?] Will Jesus Christ return before GTA VI?
+    [?] Trump out as President before GTA VI?
+
+  EVENT: US x Russia military clash by...? (4 markets)
+    [?] US x Russia military clash by December 31?
+    [?] US x Russia military clash by June 30, 2026?
+    [?] US x Russia military clash by January 31, 2026?
+    [?] US x Russia military clash by December 31, 2026?
+
+  EVENT: Trump eliminates capital gains tax on crypto by ___? (2 markets)
+    [?] Trump eliminates capital gains tax on crypto in 2025?
+    [?] Trump eliminates capital gains tax on crypto before 2027?
+
+  EVENT: MegaETH market cap (FDV) one day after launch? (8 markets)
+    [?] MegaETH market cap (FDV) >$6B one day after launch?
+    [?] MegaETH market cap (FDV) >$2B one day after launch?
+    [?] MegaETH market cap (FDV) >$4B one day after launch?
+    [?] MegaETH market cap (FDV) >$3B one day after launch?
+    [?] MegaETH market cap (FDV) >$1B one day after launch?
+
+  EVENT: MegaETH airdrop by...? (7 markets)
+    [?] Will MegaETH perform an airdrop by September 30? 
+    [?] Will MegaETH perform an airdrop by June 30? 
+    [?] Will MegaETH perform an airdrop by December 31? 
+    [?] Will MegaETH perform an airdrop by January 31?
+    [?] Will MegaETH perform an airdrop by February 28?
+
+  EVENT: Presidential Election Winner 2028 (128 markets)
+    [?] Will Eric Trump win the 2028 US Presidential Election?
+    [?] Will Person BG win the 2028 US Presidential Election?
+    [?] Will Person CZ win the 2028 US Presidential Election?
+    [?] Will Person Q win the 2028 US Presidential Election?
+    [?] Will Person AY win the 2028 US Presidential Election?
+
+  EVENT: Russia x Ukraine ceasefire by March 31, 2026? (1 markets)
+    [?] Russia x Ukraine ceasefire by March 31, 2026?
+
+  EVENT: Republican Presidential Nominee 2028 (128 markets)
+    [?] Will Donald Trump win the 2028 Republican presidential nomination?
+    [?] Will Person AN win the 2028 Republican presidential nomination?
+    [?] Will Person CX win the 2028 Republican presidential nomination?
+    [?] Will J.D. Vance win the 2028 Republican presidential nomination?
+    [?] Will Rand Paul win the 2028 Republican presidential nomination?
+
+  EVENT: Texas Republican Senate Primary Winner (20 markets)
+    [?] Will Person K win the 2026 Republican Primary?
+    [?] Will Ken Paxton win the 2026 Texas Republican Primary?
+    [?] Will Person L win the 2026 Republican Primary?
+    [?] Will John Cornyn win the 2026 Texas Republican Primary?
+    [?] Will Dawn Buckingham win the 2026 Texas Republican Primary?
+
+  EVENT: Which party will win the Senate in 2026? (9 markets)
+    [?] Will the Democratic Party control the Senate after the 2026 Midterm elections?
+    [?] Will the Republican Party control the Senate after the 2026 Midterm elections?
+    [?] Will Party A control the Senate after the 2026 Midterm elections?
+    [?] Will Party B control the Senate after the 2026 Midterm elections?
+    [?] Will Party C control the Senate after the 2026 Midterm elections?
+
+  EVENT: Which party will win the House in 2026? (9 markets)
+    [?] Will another party control the House after the 2026 Midterm elections?
+    [?] Will the Democratic Party control the House after the 2026 Midterm elections?
+    [?] Will the Republican Party control the House after the 2026 Midterm elections?
+    [?] Will Party A control the House after the 2026 Midterm elections?
+    [?] Will Party B control the House after the 2026 Midterm elections?
+
+  EVENT: Jeffrey Epstein foul play confirmed by...? (3 markets)
+    [?] Jeffrey Epstein foul play confirmed in 2025?
+    [?] Jeffrey Epstein foul play confirmed by March 31, 2026?
+    [?] Jeffrey Epstein foul play confirmed by December 31, 2026?
+
+  EVENT: Will Israel annex any territory by December 31? (2 markets)
+    [?] Will Israel annex any territory by December 31?
+    [?] Will Israel annex any territory by June 30?
+
+  EVENT: Russia x Ukraine ceasefire by end of 2026? (1 markets)
+    [?] Russia x Ukraine ceasefire by end of 2026?
+
+  EVENT: Augusta National Invitational - Winner  (102 markets)
+    [?] Will Xander Schauffele win the 2026 Masters tournament?
+    [?] Will Joaquin Niemann win the 2026 Masters tournament?
+    [?] Will Sungjae Im win the 2026 Masters tournament?
+    [?] Will Akshay Bhatia win the 2026 Masters tournament?
+    [?] Will Tom Kim win the 2026 Masters tournament?
+
+  EVENT: When will Bitcoin hit $150k? (5 markets)
+    [?] Will Bitcoin hit $150k by September 30?
+    [?] Will Bitcoin hit $150k by December 31?
+    [?] Will Bitcoin hit $150k by March 31, 2026?
+    [?] Will Bitcoin hit $150k by June 30, 2026?
+    [?] Will Bitcoin hit $150k by December 31, 2026?
+
+  EVENT: GPT-6 released by…? (5 markets)
+    [?] Will GPT-6 be released by December 31?
+    [?] Will GPT-6 be released by March 31, 2026?
+    [?] Will GPT-6 be released by June 30, 2026?
+    [?] Will GPT-6 be released by December 31, 2026?
+    [?] Will GPT-6 be released by September 30, 2026?
+
+  EVENT: Claude 5 released by…? (9 markets)
+    [?] Will Claude 5 be released by December 31?
+    [?] Will Claude 5 be released by March 31, 2026?
+    [?] Will Claude 5 be released by February 28, 2026?
+    [?] Will Claude 5 be released by February 14, 2026?
+    [?] Will Claude 5 be released by February 6, 2026?
+
+  EVENT: Grok 5 released by...? (3 markets)
+    [?] Grok 5 released by December 31?
+    [?] Grok 5 released by March 31, 2026?
+    [?] Grok 5 released by June 30, 2026?
+
+  EVENT: Will Trump meet with Putin again by...? (6 markets)
+    [?] Will Trump meet with Putin by August 31?
+    [?] Will Trump meet with Putin by September 30?
+    [?] Will Trump meet with Putin by October 31?
+    [?] Will Trump meet with Putin by December 31?
+    [?] Will Trump meet with Putin by November 30?
+
+  EVENT: Ligue 1 - Top Goalscorer  (64 markets)
+    [?] Will Ousmane Dembele be the top goal scorer in the 2025-26 Ligue 1 season?
+    [?] Will Mason Greenwood be the top goal scorer in the 2025-26 Ligue 1 season?
+    [?] Will Player T be the top goal scorer in the 2025-26 Ligue 1 season?
+    [?] Will Bradley Barcola be the top goal scorer in the 2025-26 Ligue 1 season?
+    [?] Will Player B be the top goal scorer in the 2025-26 Ligue 1 season?
+
+  EVENT: Israel x Syria security agreement by...? (7 markets)
+    [?] Israel x Syria security agreement by September 30?
+    [?] Israel x Syria security agreement by December 31?
+    [?] Israel x Syria security agreement by October 31?
+    [?] Israel x Syria security agreement by November 30?
+    [?] Israel x Syria security agreement by January 31?
+
+  EVENT: Will El Salvador hold $1b+ of BTC by...?  (3 markets)
+    [?] Will El Salvador hold $1b+ of BTC by September 30? 
+    [?] Will El Salvador hold $1b+ of BTC by December 31? 
+    [?] Will El Salvador hold $1b+ of BTC by December 31, 2026?
+
+  EVENT: Taylor Swift pregnant before marriage? (1 markets)
+    [?] Taylor Swift pregnant before marriage?
+
+  EVENT: Will Abstract launch a token by ___? (2 markets)
+    [?] Will Abstract launch a token in 2025?
+    [?] Will Abstract launch a token by December 31, 2026
+
+  EVENT: Will Axiom launch a token by ___ ? (2 markets)
+    [?] Will Axiom launch a token in 2025?
+    [?] Will Axiom launch a token by December 31, 2026?
+
+  EVENT: Will Unit launch a token by ___ ? (3 markets)
+    [?] Will Unit launch a token in 2025?
+    [?] Will Unit launch a token by December 31, 2026?
+    [?] Will Unit launch a token by December 31, 2027?
+
+  EVENT: Israel strike on Damascus by...? (4 markets)
+    [?] Israel strike on Damascus by September 30?
+    [?] Israel strike on Damascus by December 31?
+    [?] Israel strike on Damascus by October 31?
+    [?] Israel strike on Damascus by March 31, 2026?
+
+  EVENT: Russian strike on Poland by...? (3 markets)
+    [?] Russian strike on Poland by September 30?
+    [?] Russian strike on Poland by December 31?
+    [?] Russian strike on Poland by June 30?
+
+  EVENT: Will Base launch a token by ___ ? (3 markets)
+    [?] Will Base launch a token in 2025?
+    [?] Will Base launch a token by December 31, 2026?
+    [?] Will Base launch a token by June 30, 2026?
+
+  EVENT: Will Ostium launch a token by ___ ? (2 markets)
+    [?] Will Ostium launch a token in 2025?
+    [?] Will Ostium launch a token by December 31, 2026?
+
+  EVENT: Will Felix Protocol launch a token by ___ ? (2 markets)
+    [?] Will Felix Protocol launch a token in 2025?
+    [?] Will Felix Protocol launch a token by December 31, 2026?
+
+  EVENT: Which candidates will advance to Brazil's presidential runoff? (6 markets)
+    [?] Will Tarcisio de Frietas qualify for Brazil's presidential runoff?
+    [?] Will Luiz Inácio Lula da Silva qualify for Brazil's presidential runoff?
+    [?] Will Jair Bolsonaro qualify for Brazil's presidential runoff?
+    [?] Will Fernando Haddad qualify for Brazil's presidential runoff?
+    [?] Will Michelle Bolsonaro qualify for Brazil's presidential runoff?
+
+  EVENT: Will MetaMask launch a token by ___ ? (4 markets)
+    [?] Will MetaMask launch a token in 2025?
+    [?] Will MetaMask launch a token by June 30?
+    [?] Will MetaMask launch a token by September 30, 2026?
+    [?] Will MetaMask launch a token by December 31, 2026?
+
+  EVENT: Will China blockade Taiwan by June 30? (1 markets)
+    [?] Will China blockade Taiwan by June 30?
+
+  EVENT: Will Trump visit China by...? (5 markets)
+    [?] Will Trump visit China by October 31?
+    [?] Will Trump visit China by March 31?
+    [?] Will Trump visit China by April 30?
+    [?] Will Trump visit China by May 31?
+    [?] Will Trump visit China by June 30?
+
+  EVENT: NATO x Russia military clash by...? (4 markets)
+    [?] NATO x Russia military clash in 2025?
+    [?] NATO x Russia military clash by March 31, 2026?
+    [?] NATO x Russia military clash by June 30, 2026?
+    [?] NATO x Russia military clash by December 31, 2026?
+
+  EVENT: Russian strike on a NATO member by...? (3 markets)
+    [?] Russian strike on a NATO member by October 31?
+    [?] Russian strike on a NATO member by March 31?
+    [?] Russian strike on a NATO member by December 31?
+
+  EVENT: Will Putin meet with Zelenskyy by June 30, 2026? (1 markets)
+    [?] Will Putin meet with Zelenskyy by June 30, 2026?
+
+  EVENT: How many Fed rate cuts in 2026? (13 markets)
+    [?] Will no Fed rate cuts happen in 2026?
+    [?] Will 1 Fed rate cut happen in 2026?
+    [?] Will 2 Fed rate cuts happen in 2026?
+    [?] Will 3 Fed rate cuts happen in 2026?
+    [?] Will 4 Fed rate cuts happen in 2026?
+
+  EVENT: Opensea FDV above ___ one day after launch? (8 markets)
+    [?] Opensea FDV above $1B one day after launch?
+    [?] Opensea FDV above $500M one day after launch?
+    [?] Opensea FDV above $3B one day after launch?
+    [?] Opensea FDV above $5B one day after launch?
+    [?] Opensea FDV above $2B one day after launch?
+
+  EVENT: Where will Trump and Putin meet next? (15 markets)
+    [?] Will Trump and Putin meet next in Belarus?
+    [?] Will Trump and Putin meet next in Finland?
+    [?] Will Trump and Putin meet next in Russia?
+    [?] Will Trump and Putin meet next in Japan?
+    [?] Will Trump and Putin meet next in United States?
+
+  EVENT: Israel x Hamas ceasefire cancelled by...? (7 markets)
+    [?] Israel x Hamas ceasefire cancelled by October 31?
+    [?] Israel x Hamas ceasefire cancelled by December 31?
+    [?] Israel x Hamas ceasefire cancelled by November 30?
+    [?] Israel x Hamas ceasefire cancelled by November 7?
+    [?] Israel x Hamas ceasefire cancelled by March 31, 2026?
+
+  EVENT: Israel x Hamas Ceasefire Phase II by...? (7 markets)
+    [?] Israel x Hamas Ceasefire Phase II by October 31?
+    [?] Israel x Hamas Ceasefire Phase II by December 31?
+    [?] Israel x Hamas Ceasefire Phase II by March 31?
+    [?] Israel x Hamas Ceasefire Phase II by November 30?
+    [?] Israel x Hamas Ceasefire Phase II by January 31?
+
+  EVENT: Will prjx launch a token by ___ ? (2 markets)
+    [?] Will prjx launch a token in 2025?
+    [?] Will prjx launch a token by December 31, 2026?
+
+  EVENT: India strike on Pakistan by...? (6 markets)
+    [?] Will India strike Pakistan by Oct 31?
+    [?] Will India strike Pakistan by Dec 31?
+    [?] Will India strike Pakistan by November 14?
+    [?] Will India strike Pakistan by November 30?
+    [?] Will India strike Pakistan by March 31?
+
+  EVENT: Will Israel annex Gaza territory by June 30 2026? (1 markets)
+    [?] Will Israel annex Gaza territory by June 30 2026?
+
+  EVENT: Ink FDV above ___ one day after launch? (5 markets)
+    [?] Ink FDV above $1B one day after launch?
+    [?] Ink FDV above $500M one day after launch?
+    [?] Ink FDV above $2B one day after launch?
+    [?] Ink FDV above $3B one day after launch?
+    [?] Ink FDV above $250M one day after launch?
+
+  EVENT: Will Israel launch a major ground offensive in Gaza by...? (5 markets)
+    [?] Will Israel launch a major ground offensive in Gaza by December 31?
+    [?] Will Israel launch a major ground offensive in Gaza by October 31?
+    [?] Will Israel launch a major ground offensive in Gaza by March 31?
+    [?] Will Israel launch a major ground offensive in Gaza by December 31?
+    [?] Will Israel launch a major ground offensive in Gaza by June 30?
+
+  EVENT: NHL Art Ross Trophy Winner (122 markets)
+    [?] Will Connor McDavid win the 2025–2026 NHL Art Ross Trophy?
+    [?] Will Nathan MacKinnon win the 2025–2026 NHL Art Ross Trophy?
+    [?] Will Jack Eichel win the 2025–2026 NHL Art Ross Trophy?
+    [?] Will Nikita Kucherov win the 2025–2026 NHL Art Ross Trophy?
+    [?] Will Kirill Kaprizov win the 2025–2026 NHL Art Ross Trophy?
+
+  EVENT: NHL Hart Memorial Trophy Winner (139 markets)
+    [?] Will Connor McDavid win the 2025–2026 NHL Hart Memorial Trophy?
+    [?] Will Nathan MacKinnon win the 2025–2026 NHL Hart Memorial Trophy?
+    [?] Will Kirill Kaprizov win the 2025–2026 NHL Hart Memorial Trophy?
+    [?] Will Leon Draisaitl win the 2025–2026 NHL Hart Memorial Trophy?
+    [?] Will Nikita Kucherov win the 2025–2026 NHL Hart Memorial Trophy?
+
+  EVENT: NHL Frank J. Selke Trophy Winner (57 markets)
+    [?] Will Player 13 win the 2025–2026 NHL Frank J. Selke Trophy?
+    [?] Will Sam Reinhart win the 2025–2026 NHL Frank J. Selke Trophy?
+    [?] Will Auston Matthews win the 2025–2026 NHL Frank J. Selke Trophy?
+    [?] Will Shane Pinto win the 2025–2026 NHL Frank J. Selke Trophy?
+    [?] Will Mark Stone win the 2025–2026 NHL Frank J. Selke Trophy?
+
+  EVENT: NHL James Norris Memorial Trophy Winner (90 markets)
+    [?] Will Darnell Nurse win the 2025–2026 NHL James Norris Memorial Trophy?
+    [?] Will Quinn Hughes win the 2025–2026 NHL James Norris Memorial Trophy?
+    [?] Will Jakob Chychrun win the 2025–2026 NHL James Norris Memorial Trophy?
+    [?] Will Thomas Harley win the 2025–2026 NHL James Norris Memorial Trophy?
+    [?] Will Devon Toews win the 2025–2026 NHL James Norris Memorial Trophy?
+
+  EVENT: NHL Maurice 'Rocket' Richard Trophy Winner (102 markets)
+    [?] Will Brad Marchand win the 2025–2026 NHL Maurice 'Rocket' Richard Trophy?
+    [?] Will Player 14 win the 2025–2026 NHL Maurice 'Rocket' Richard Trophy?
+    [?] Will Player 16 win the 2025–2026 NHL Maurice 'Rocket' Richard Trophy?
+    [?] Will Aleksander Barkov win the 2025–2026 NHL Maurice 'Rocket' Richard Trophy?
+    [?] Will Adam Fantilli win the 2025–2026 NHL Maurice 'Rocket' Richard Trophy?
+
+  EVENT: Will knots flip bitcoin core by ___? (2 markets)
+    [?] Will knots flip bitcoin core by December 31?
+    [?] Will knots flip bitcoin core before 2027?
+
+  EVENT: Will Jia Yueting enter mainland China by...? (2 markets)
+    [?] Will Jia Yueting enter mainland China by December 31?
+    [?] Will Jia Yueting enter mainland China by June 30?
+
+  EVENT: Another crypto hack over $100m by ___? (2 markets)
+    [?] Another crypto hack over $100m in 2025?
+    [?] Another crypto hack over $100m before 2027?
+
+  EVENT: Will the Iranian regime fall before 2027? (1 markets)
+    [?] Will the Iranian regime fall before 2027?
+
+  EVENT: Another S&P 500 Company buys Bitcoin by ___? (3 markets)
+    [?] Another S&P 500 Company buys Bitcoin by December 31, 2026?
+    [?] Another S&P 500 Company buys Bitcoin by December 31, 2025?
+    [?] Another S&P 500 Company buys Bitcoin by November 30?
+
+  EVENT: US national Bitcoin reserve before 2027? (1 markets)
+    [?] US national Bitcoin reserve before 2027?
+
+  EVENT: Ukraine signs peace deal with Russia by March 31? (1 markets)
+    [?] Ukraine signs peace deal with Russia by March 31?
+
+  EVENT: Ukraine signs peace deal with Russia before 2027? (1 markets)
+    [?] Ukraine signs peace deal with Russia before 2027?
+
+  EVENT: Will China unban Bitcoin by 2027? (1 markets)
+    [?] Will China unban Bitcoin by 2027?
+
+  EVENT: Which countries will Donald Trump visit in 2026? (22 markets)
+    [?] Will Donald Trump visit Switzerland in 2026?
+    [?] Will Donald Trump visit Syria in 2026?
+    [?] Will Donald Trump visit the United Kingdom in 2026?
+    [?] Will Donald Trump visit Israel in 2026?
+    [?] Will Donald Trump visit Canada in 2026?
+
+  EVENT: US-Iran nuclear deal before 2027? (1 markets)
+    [?] US-Iran nuclear deal before 2027?
+
+  EVENT: Obama divorce before 2027? (1 markets)
+    [?] Obama divorce before 2027?
+
+  EVENT: US national Ethereum reserve before 2027? (1 markets)
+    [?] US national Ethereum reserve before 2027?
+
+  EVENT: Fed abolished before 2027? (1 markets)
+    [?] Fed abolished before 2027?
+
+  EVENT: Obama federally charged before 2027? (1 markets)
+    [?] Obama federally charged before 2027?
+
+  EVENT: US Treasury transactions on blockchain by June 30? (1 markets)
+    [?] US Treasury transactions on blockchain by June 30?
+
+  EVENT: Israel x Turkey military clash before 2027? (1 markets)
+    [?] Israel x Turkey military clash before 2027?
+
+  EVENT: Will Trump reduce the deficit before 2027?  (1 markets)
+    [?] Will Trump reduce the deficit before 2027? 
+
+  EVENT: Will North and South Korea engage in direct talks by June 30? (1 markets)
+    [?] Will North and South Korea engage in direct talks by June 30?
+
+  EVENT: Will Israel annex West Bank territory before 2027? (1 markets)
+    [?] Will Israel annex West Bank territory before 2027?
+
+  EVENT: Iran nuclear test before 2027? (1 markets)
+    [?] Iran nuclear test before 2027?
+
+  EVENT: Metamask FDV above ___ one day after launch? (7 markets)
+    [?] Metamask FDV above $700M one day after launch?
+    [?] Metamask FDV above $1B one day after launch?
+    [?] Metamask FDV above $3B one day after launch?
+    [?] Metamask FDV above $2B one day after launch?
+    [?] Metamask FDV above $4B one day after launch?
+
+  EVENT: edgeX FDV above ___ one day after launch? (11 markets)
+    [?] EdgeX FDV above $1B one day after launch?
+    [?] EdgeX FDV above $2B one day after launch?
+    [?] EdgeX FDV above $3B one day after launch?
+    [?] EdgeX FDV above $4B one day after launch?
+    [?] EdgeX FDV above $5B one day after launch?
+
+  EVENT: Who will Trump meet with in 2026? (23 markets)
+    [?] Will Trump meet with Maria Corina Machado in 2026?
+    [?] Will Trump meet with Nick Fuentes in 2026?
+    [?] Will Trump meet with Kim Jong Un in 2026?
+    [?] Will Trump meet with Volodymyr Zelenskyy in 2026?
+    [?] Will Trump meet with Xi Jinping in 2026?
+
+  EVENT: Who will leave Trump Administration before 2027? (19 markets)
+    [?] Will Susie Wiles leave the Trump administration before 2027?
+    [?] Will Dan Scavino leave the Trump administration before 2027?
+    [?] Will David Sacks leave the Trump administration before 2027?
+    [?] Will Russell Vought leave the Trump administration before 2027?
+    [?] Will Tom Homan leave the Trump administration before 2027?
+
+  EVENT: Will Variational launch a token by ___ ? (2 markets)
+    [?] Will Variational launch a token by December 31, 2026?
+    [?] Will Variational launch a token in 2025?
+
+  EVENT: Will USD.AI launch a token by ___ ? (2 markets)
+    [?] Will USD.AI launch a token in 2025?
+    [?] Will USD.AI launch a token by March 31?
+
+  EVENT: U.S. nuclear test by...? (3 markets)
+    [?] Will the U.S. test a nuclear weapon by November 30 2025?
+    [?] Will the U.S. test a nuclear weapon by December 31 2025?
+    [?] Will the U.S. test a nuclear weapon by March 31 2026?
+
+  EVENT: Russia nuclear test by...? (3 markets)
+    [?] Will Russia test a nuclear weapon by November 30 2025?
+    [?] Will Russia test a nuclear weapon by December 31 2025?
+    [?] Will Russia test a nuclear weapon by March 31 2026?
+
+  EVENT: Consensys IPO closing market cap above ___ ? (3 markets)
+    [?] Consensys IPO closing market cap above $1B?
+    [?] Consensys IPO closing market cap above $2B?
+    [?] Consensys IPO closing market cap above $3B?
+
+  EVENT: Where will Zelenskyy and Putin meet next before 2027? (30 markets)
+    [?] Will Zelenskyy and Putin meet next in Turkey before 2027?
+    [?] Will Zelenskyy and Putin meet next in Russia before 2027?
+    [?] Will Zelenskyy and Putin meet next in Italy / Vatican before 2027?
+    [?] Will Zelenskyy and Putin meet next in Ukraine before 2027?
+    [?] Will Zelenskyy and Putin meet next in China before 2027?
+
+  EVENT: Fed decision in April? (4 markets)
+    [?] Will the Fed decrease interest rates by 50+ bps after the April 2026 meeting?
+    [?] Will the Fed decrease interest rates by 25 bps after the April 2026 meeting?
+    [?] Will there be no change in Fed interest rates after the April 2026 meeting?
+    [?] Will the Fed increase interest rates by 25+ bps after the April 2026 meeting?
+
+  EVENT: NYSE marketwide circuit breaker before 2027? (1 markets)
+    [?] NYSE marketwide circuit breaker before 2027?
+
+  EVENT: Will StandX launch a token by ___ ? (2 markets)
+    [?] Will StandX launch a token by March 31?
+    [?] Will StandX launch a token in 2025?
+
+  EVENT: OpenAI receives federal backstop for infrastructure before July? (1 markets)
+    [?] OpenAI receives federal backstop for infrastructure before July?
+
+  EVENT: Based FDV above ___ one day after launch? (11 markets)
+    [?] Based FDV above $800M one day after launch?
+    [?] Based FDV above $500M one day after launch?
+    [?] Based FDV above $300M one day after launch?
+    [?] Based FDV above $1B one day after launch?
+    [?] Based FDV above $2B one day after launch?
+
+  EVENT: StandX FDV above ___ one day after launch? (9 markets)
+    [?] StandX FDV above $5B one day after launch?
+    [?] StandX FDV above $7B one day after launch?
+    [?] StandX FDV above $10B one day after launch?
+    [?] StandX FDV above $1B one day after launch?
+    [?] StandX FDV above $3B one day after launch?
+
+  EVENT: Will $PUP receive a perp listing by March 31? (1 markets)
+    [?] Will $PUP receive a perp listing by March 31?
+
+  EVENT: Will MicroStrategy announce bankruptcy before 2027? (1 markets)
+    [?] Will MicroStrategy announce bankruptcy before 2027?
+
+  EVENT: Will OpenAI launch a token before 2027? (1 markets)
+    [?] Will OpenAI launch a token before 2027?
+
+  EVENT: Bitcoin more valuable than any company before 2027? (1 markets)
+    [?] Bitcoin more valuable than any company before 2027?
+
+  EVENT: Will Sam Altman get OpenAI equity by June 30? (1 markets)
+    [?] Will Sam Altman get OpenAI equity by June 30?
+
+  EVENT: Fed emergency rate cut before 2027? (1 markets)
+    [?] Fed emergency rate cut before 2027?
+
+  EVENT: Will Spark launch a token by ___ ? (3 markets)
+    [?] Will Spark launch a token by December 31, 2026
+    [?] Will Spark launch a token by December 31?
+    [?] Will Spark launch a token by March 31?
+
+  EVENT: Major U.S. bank bailout before 2027? (1 markets)
+    [?] Major U.S. bank bailout before 2027?
+
+  EVENT: China coup attempt before 2027? (1 markets)
+    [?] China coup attempt before 2027?
+
+  EVENT: US recognizes Russian sovereignty over Ukraine before 2027? (1 markets)
+    [?] US recognizes Russian sovereignty over Ukraine before 2027?
+
+  EVENT: China x Taiwan military clash before 2027? (1 markets)
+    [?] China x Taiwan military clash before 2027?
+
+  EVENT: China x Philippines military clash before 2027? (1 markets)
+    [?] China x Philippines military clash before 2027?
+
+  EVENT: How many different countries will Israel strike in 2026? (16 markets)
+    [?] Will Israel strike 0 countries in 2026?
+    [?] Will Israel strike 4 countries in 2026?
+    [?] Will Israel strike 8 countries in 2026?
+    [?] Will Israel strike 12 countries in 2026?
+    [?] Will Israel strike 1 country in 2026?
+
+  EVENT: How many different countries will the US conduct military action again (16 markets)
+    [?] Will the US strike 0 countries in 2026?
+    [?] Will the US strike 2 countries in 2026?
+    [?] Will the US strike 4 countries in 2026?
+    [?] Will the US strike 6 countries in 2026?
+    [?] Will the US strike 8 countries in 2026?
+
+  EVENT: Will a US ally get a nuke before 2027? (1 markets)
+    [?] Will a US ally get a nuke before 2027?
+
+  EVENT: Next French Presidential Election (128 markets)
+    [?] Will Marine Le Pen win the 2027 French presidential election?
+    [?] Will Éric Zemmour win the 2027 French presidential election?
+    [?] Will David Lisnard win the 2027 French presidential election?
+    [?] Will Laurent Wauquiez win the 2027 French presidential election?
+    [?] Will Gabriel Attal win the 2027 French presidential election?
+
+  EVENT: Will xAI release a dLLM by June 30? (1 markets)
+    [?] Will xAI release a dLLM by June 30?
+
+  EVENT: Will Victor Wembanyama record a quadruple double this season? (1 markets)
+    [?] Will Victor Wembanyama record a quadruple double this season?
+
+  EVENT: Will a new country buy Bitcoin by...? (3 markets)
+    [?] Will a new country buy Bitcoin by December 31, 2025?
+    [?] Will a new country buy Bitcoin by December 31, 2026?
+    [?] Will a new country buy Bitcoin by June 30, 2026?
+
+  EVENT: Sudan civil war ceasefire by...? (4 markets)
+    [?] Sudan civil war ceasefire in 2025?
+    [?] Sudan civil war ceasefire by March 31, 2026?
+    [?] Sudan civil war ceasefire by June 30, 2026?
+    [?] Sudan civil war ceasefire by December 31, 2026?
+
+  EVENT: Which CEOs will be out before 2027? (6 markets)
+    [?] Sundar Pichai out as Google CEO before 2027?
+    [?] Dan Clancy out as Twitch CEO before 2027?
+    [?] Brian Armstrong out as Coinbase CEO before 2027?
+    [?] Tim Cook out as Apple CEO before 2027?
+    [?] Andy Jassy out as Amazon CEO before 2027?
+
+  EVENT: China x Japan military clash before 2027? (1 markets)
+    [?] China x Japan military clash before 2027?
+
+  EVENT: Who will Trump pardon before 2027? (27 markets)
+    [?] Will Trump pardon Roger Ver before 2027?
+    [?] Will Trump pardon Elon Musk before 2027?
+    [?] Will Trump pardon Matt Gaetz before 2027?
+    [?] Will Trump pardon Joe Exotic "The Tiger King" before 2027?
+    [?] Will Trump pardon Ghislaine Maxwell before 2027?
+
+  EVENT: Will GMGN launch a token by ___ ? (3 markets)
+    [?] Will GMGN launch a token by December 31, 2025?
+    [?] Will GMGN launch a token by December 31, 2026?
+    [?] Will GMGN launch a token by March 31, 2026?
+
+  EVENT: What will Fed Rate hit before 2027? (21 markets)
+    [?] Will the Fed’s upper bound reach 5.0% or higher before 2027?
+    [?] Will the Fed’s upper bound reach 5.25% or higher before 2027?
+    [?] Will the Fed’s upper bound reach 4.75% or higher before 2027?
+    [?] Will the Fed’s lower bound reach 2.0% or lower before 2027?
+    [?] Will the Fed’s lower bound reach 1.25% or lower before 2027?
+
+  EVENT: Hyperbeat FDV above ___ one day after launch? (5 markets)
+    [?] Hyperbeat FDV above $50M one day after launch?
+    [?] Hyperbeat FDV above $200M one day after launch?
+    [?] Hyperbeat FDV above $400M one day after launch?
+    [?] Hyperbeat FDV above $100M one day after launch?
+    [?] Hyperbeat FDV above $300M one day after launch?
+
+  EVENT: Will Extended launch a token by ___ ? (5 markets)
+    [?] Will Extended launch a token by March 31 2026?
+    [?] Will Extended launch a token by September 30 2026?
+    [?] Will Extended launch a token by December 31 2025?
+    [?] Will Extended launch a token by June 30 2026?
+    [?] Will Extended launch a token by December 31 2026?
+
+  EVENT: USD.AI FDV above ___ one day after launch? (12 markets)
+    [?] USD.AI FDV above $300M one day after launch?
+    [?] USD.AI FDV above $2B one day after launch?
+    [?] USD.AI FDV above $1B one day after launch?
+    [?] USD.AI FDV above $500M one day after launch?
+    [?] USD.AI FDV above $3B one day after launch?
+
+  EVENT: Will Arc launch a token by ___ ? (5 markets)
+    [?] Will Arc launch a token by December 31 2025?
+    [?] Will Arc launch a token by June 30 2026?
+    [?] Will Arc launch a token by December 31 2026?
+    [?] Will Arc launch a token by March 31 2026?
+    [?] Will Arc launch a token by September 30 2026?
+
+  EVENT: Will Pacifica launch a token by ___ ? (5 markets)
+    [?] Will Pacifica launch a token by March 31 2026?
+    [?] Will Pacifica launch a token by September 30 2026?
+    [?] Will Pacifica launch a token by December 31 2025?
+    [?] Will Pacifica launch a token by June 30 2026?
+    [?] Will Pacifica launch a token by December 31 2026?
+
+  EVENT: Kraken IPO closing market cap above ___ ? (7 markets)
+    [?] Kraken IPO closing market cap above $18B?
+    [?] Kraken IPO closing market cap above $22B?
+    [?] Kraken IPO closing market cap above $26B?
+    [?] Kraken IPO closing market cap above $16B?
+    [?] Kraken IPO closing market cap above $20B?
+
+  EVENT: Crypto Twitter mindshare ATH by March 31, 2026? (12 markets)
+    [?] Tom Lee mindshare all time high by March 31?
+    [?] Flood mindshare all time high by March 31?
+    [?] Proph3T mindshare all time high by March 31?
+    [?] mert mindshare all time high by March 31?
+    [?] Ansem mindshare all time high by March 31?
+
+  EVENT: Will Ubisoft announce bankruptcy by June 30? (1 markets)
+    [?] Will Ubisoft announce bankruptcy by June 30?
+
+  EVENT: Which companies announce bankruptcy before 2027? (15 markets)
+    [?] Will OpenAI announce bankruptcy before 2027?
+    [?] Will Xerox announce bankruptcy before 2027?
+    [?] Will SoundHound AI announce bankruptcy before 2027?
+    [?] Will JetBlue Airways announce bankruptcy before 2027?
+    [?] Will Lucid announce bankruptcy before 2027?
+
+  EVENT: Will Ventuals launch a token by ___ ? (5 markets)
+    [?] Will Ventuals launch a token by December 31 2025?
+    [?] Will Ventuals launch a token by June 30 2026?
+    [?] Will Ventuals launch a token by December 31 2026?
+    [?] Will Ventuals launch a token by March 31 2026?
+    [?] Will Ventuals launch a token by September 30 2026?
+
+  EVENT: Will Zelenskyy talk to Putin by...? (5 markets)
+    [?] Will Zelenskyy talk to Putin by November 30?
+    [?] Will Zelenskyy talk to Putin by December 31?
+    [?] Will Zelenskyy talk to Putin by January 31?
+    [?] Will Zelenskyy talk to Putin by March 31?
+    [?] Will Zelenskyy talk to Putin by December 31?
+
+  EVENT: What price will Bitcoin hit in 2026? (34 markets)
+    [?] Will Bitcoin reach $200,000 by December 31, 2026?
+    [?] Will Bitcoin reach $180,000 by December 31, 2026?
+    [?] Will Bitcoin reach $160,000 by December 31, 2026?
+    [?] Will Bitcoin reach $140,000 by December 31, 2026?
+    [?] Will Bitcoin reach $120,000 by December 31, 2026?
+
+  EVENT: What price will Ethereum hit in 2026? (16 markets)
+    [?] Will Ethereum reach $10,000 by December 31, 2026?
+    [?] Will Ethereum reach $7,500 by December 31, 2026?
+    [?] Will Ethereum reach $6,500 by December 31, 2026?
+    [?] Will Ethereum reach $5,500 by December 31, 2026?
+    [?] Will Ethereum reach $4,500 by December 31, 2026?
+
+  EVENT: What price will Solana hit in 2026? (18 markets)
+    [?] Will Solana reach $600 by December 31, 2026?
+    [?] Will Solana reach $320 by December 31, 2026?
+    [?] Will Solana reach $280 by December 31, 2026?
+    [?] Will Solana reach $240 by December 31, 2026?
+    [?] Will Solana reach $200 by December 31, 2026?
+
+  EVENT: Will the US confirm that aliens exist by...? (2 markets)
+    [?] Will the US confirm that aliens exist before 2027?
+    [?] Will the US confirm that aliens exist by March 31?
+
+  EVENT: NY-17 Democratic Primary Winner (24 markets)
+    [?] Will Beth Davidson be the Democratic nominee for NY-17?
+    [?] Will Effie Phillips-Staley be the Democratic nominee for NY-17?
+    [?] Will Mike Sacks be the Democratic nominee for NY-17?
+    [?] Will John Cappello be the Democratic nominee for NY-17?
+    [?] Will Candidate B be the Democratic nominee for NY-17?
+
+  EVENT: MA-06 Democratic Primary Winner (19 markets)
+    [?] Will Dan Koh be the Democratic nominee for MA-06?
+    [?] Will Seth Moulton be the Democratic nominee for MA-06?
+    [?] Will John Beccia be the Democratic nominee for MA-06?
+    [?] Will Mariah Lancaster be the Democratic nominee for MA-06?
+    [?] Will Jamie Zahlaway Belsito be the Democratic nominee for MA-06?
+
+  EVENT: Will Tempo launch a token by ___ ? (5 markets)
+    [?] Will Tempo launch a token by March 31 2026?
+    [?] Will Tempo launch a token by September 30 2026?
+    [?] Will Tempo launch a token by December 31 2025?
+    [?] Will Tempo launch a token by June 30 2026?
+    [?] Will Tempo launch a token by December 31 2026?
+
+  EVENT: Ventuals FDV above ___ one day after launch? (7 markets)
+    [?] Ventuals FDV above $1.5B one day after launch?
+    [?] Ventuals FDV above $2B one day after launch?
+    [?] Ventuals FDV above $500M one day after launch?
+    [?] Ventuals FDV above $300M one day after launch?
+    [?] Ventuals FDV above $800M one day after launch?
+
+  EVENT: Ostium FDV above ___ one day after launch? (7 markets)
+    [?] Ostium FDV above $700M one day after launch?
+    [?] Ostium FDV above $2B one day after launch?
+    [?] Ostium FDV above $1B one day after launch?
+    [?] Ostium FDV above $4B one day after launch?
+    [?] Ostium FDV above $3B one day after launch?
+
+  EVENT: Will Bitcoin replace SHA-256 before 2027? (1 markets)
+    [?] Will Bitcoin replace SHA-256 before 2027?
+
+  EVENT: Makina FDV above ___ one day after launch? (4 markets)
+    [?] Makina FDV above $100M one day after launch?
+    [?] Makina FDV above $300M one day after launch?
+    [?] Makina FDV above $80M one day after launch?
+    [?] Makina FDV above $200M one day after launch?
+
+  EVENT: Reya FDV above ___ one day after launch? (6 markets)
+    [?] Reya FDV above $1B one day after launch?
+    [?] Reya FDV above $200M one day after launch?
+    [?] Reya FDV above $400M one day after launch?
+    [?] Reya FDV above $150M one day after launch?
+    [?] Reya FDV above $300M one day after launch?
+
+  EVENT: Will Theo launch a token by ___ ? (5 markets)
+    [?] Will Theo launch a token by September 30 2026?
+    [?] Will Theo launch a token by March 31 2026?
+    [?] Will Theo launch a token by June 30 2026?
+    [?] Will Theo launch a token by December 31 2025?
+    [?] Will Theo launch a token by December 31 2026?
+
+  EVENT: Will Solstice launch a token by ___ ? (5 markets)
+    [?] Will Solstice launch a token by June 30 2026?
+    [?] Will Solstice launch a token by March 31 2026?
+    [?] Will Solstice launch a token by December 31 2025?
+    [?] Will Solstice launch a token by December 31 2026?
+    [?] Will Solstice launch a token by September 30 2026?
+
+  EVENT: Ukraine officially agrees to a US backed ceasefire framework by...? (5 markets)
+    [?] Ukraine officially agrees to a US backed ceasefire framework by December 31?
+    [?] Ukraine officially agrees to a US backed ceasefire framework by January 31?
+    [?] Ukraine officially agrees to a US backed ceasefire framework by March 31?
+    [?] Ukraine officially agrees to a US backed ceasefire framework by February 28?
+    [?] Ukraine officially agrees to a US backed ceasefire framework by June 30?
+
+  EVENT: Theo FDV above ___ one day after launch? (4 markets)
+    [?] Theo FDV above $300M one day after launch?
+    [?] Theo FDV above $1B one day after launch?
+    [?] Theo FDV above $100M one day after launch?
+    [?] Theo FDV above $700M one day after launch?
+
+  EVENT: Pacifica FDV above ___ one day after launch? (6 markets)
+    [?] Pacifica FDV above $1B one day after launch?
+    [?] Pacifica FDV above $500M one day after launch?
+    [?] Pacifica FDV above $3B one day after launch?
+    [?] Pacifica FDV above $2B one day after launch?
+    [?] Pacifica FDV above $800M one day after launch?
+
+  EVENT: Extended FDV above ___ one day after launch? (7 markets)
+    [?] Extended FDV above $800M one day after launch?
+    [?] Extended FDV above $2B one day after launch?
+    [?] Extended FDV above $500M one day after launch?
+    [?] Extended FDV above $1B one day after launch?
+    [?] Extended FDV above $3B one day after launch?
+
+  EVENT: Felix FDV above ___ one day after launch? (8 markets)
+    [?] Felix Protocol FDV above $50M one day after launch?
+    [?] Felix Protocol FDV above $25M one day after launch?
+    [?] Felix Protocol FDV above $100M one day after launch?
+    [?] Felix Protocol FDV above $500M one day after launch?
+    [?] Felix Protocol FDV above $1B one day after launch?
+
+  EVENT: Which states will Donald Trump visit in 2026? (50 markets)
+    [?] Will Donald Trump visit Alabama in 2026?
+    [?] Will Donald Trump visit Arizona in 2026?
+    [?] Will Donald Trump visit California in 2026?
+    [?] Will Donald Trump visit Connecticut in 2026?
+    [?] Will Donald Trump visit Florida in 2026?
+
+  EVENT: Will fomo.family launch a token by ___ ? (5 markets)
+    [?] Will Fomo launch a token by December 31 2025?
+    [?] Will Fomo launch a token by December 31 2026?
+    [?] Will Fomo launch a token by March 31 2026?
+    [?] Will Fomo launch a token by June 30 2026?
+    [?] Will Fomo launch a token by September 30 2026?
+
+  EVENT: Timothy Chalamet confirmed to be EsDeeKid by June 30? (1 markets)
+    [?] Timothy Chalamet confirmed to be EsDeeKid by June 30?
+
+  EVENT: Pete Hegseth out as Secretary of Defense by March 31? (1 markets)
+    [?] Pete Hegseth out as Secretary of Defense by March 31?
+
+  EVENT: Massachusetts Democratic Senate Primary Winner (20 markets)
+    [?] Will Ayanna Pressley be the Democratic nominee for Senate in Massachusetts?
+    [?] Will Seth Moulton be the Democratic nominee for Senate in Massachusetts?
+    [?] Will Candidate A be the Democratic nominee for Senate in Massachusetts?
+    [?] Will Candidate C be the Democratic nominee for Senate in Massachusetts?
+    [?] Will Candidate E be the Democratic nominee for Senate in Massachusetts?
+
+  EVENT: Will Bryan Johnson propose to his co-founder before 2027? (1 markets)
+    [?] Will Bryan Johnson propose to his co-founder before 2027?
+
+  EVENT: Will AI be charged with a crime before 2027? (1 markets)
+    [?] Will AI be charged with a crime before 2027?
+
+  EVENT: MH370 underwater wreckage found by June 30, 2026? (1 markets)
+    [?] MH370 underwater wreckage found by June 30, 2026?
+
+  EVENT: Which continent will win the 2026 Fifa World Cup? (7 markets)
+    [?] Will North America win the 2026 FIFA World Cup?
+    [?] Will Asia win the 2026 FIFA World Cup?
+    [?] Will Oceania win the 2026 FIFA World Cup?
+    [?] Will Europe win the 2026 FIFA World Cup?
+    [?] Will another continent win the 2026 FIFA World Cup?
+
+  EVENT: Tim Walz charged by...? (2 markets)
+    [?] Tim Walz charged by March 31, 2026?
+    [?] Tim Walz charged by December 31, 2026?
+
+  EVENT: Will Netanyahu visit NYC by March 31? (1 markets)
+    [?] Will Netanyahu visit NYC by March 31?
+
+  EVENT: Tabi FDV above ___ one day after launch? (4 markets)
+    [?] Tabi FDV above $500M one day after launch?
+    [?] Tabi FDV above $2B one day after launch?
+    [?] Tabi FDV above $1B one day after launch?
+    [?] Tabi FDV above $3B one day after launch?
+
+  EVENT: ACA credits extended & House Winner 2026? (5 markets)
+    [?] Will ACA premium tax credits not be extended and will the Democratic Party win t
+    [?] Will ACA premium tax credits be extended and will the Republican Party win the H
+    [?] Will ACA premium tax credits be extended and will the Democratic Party win the H
+    [?] Will something else occur?
+    [?] Will ACA premium tax credits not be extended and will the Republican Party win t
+
+  EVENT: Another US government shutdown & House Winner 2026? (5 markets)
+    [?] Will there be another US government shutdown by January 31 and will the Democrat
+    [?] Will there be no US government shutdown by January 31 and will the Democratic Pa
+    [?] Will something else occur?
+    [?] Will there be another US government shutdown by January 31 and will the Republic
+    [?] Will there be no US government shutdown by January 31 and will the Republican Pa
+
+  EVENT: Maine Governor Democratic Primary Winner (34 markets)
+    [?] Will Shenna Bellows win the 2026 Maine Governor Democratic primary election?
+    [?] Will Troy Jackson win the 2026 Maine Governor Democratic primary election?
+    [?] Will Kenneth Pinet win the 2026 Maine Governor Democratic primary election?
+    [?] Will Nirav Shah win the 2026 Maine Governor Democratic primary election?
+    [?] Will Candidate A win the 2026 Maine Governor Democratic primary election?
+
+  EVENT: Gensyn FDV above ___ one day after launch? (7 markets)
+    [?] Gensyn FDV above $600M one day after launch?
+    [?] Gensyn FDV above $1B one day after launch?
+    [?] Gensyn FDV above $2B one day after launch?
+    [?] Gensyn FDV above $800M one day after launch?
+    [?] Gensyn FDV above $1.5B one day after launch?
+
+  EVENT: Fed Decision in June? (5 markets)
+    [?] Will the Fed decrease interest rates by 25 bps after the June 2026 meeting?
+    [?] Will the Fed increase interest rates by 25 bps after the June 2026 meeting?
+    [?] Will the Fed decrease interest rates by 50+ bps after the June 2026 meeting?
+    [?] Will there be no change in Fed interest rates after the June 2026 meeting?
+    [?] Will the Fed increase interest rates by 50+ bps after the June 2026 meeting?
+
+  EVENT: Fed rate hike in 2026? (1 markets)
+    [?] Fed rate hike in 2026?
+
+  EVENT: SpaceX IPO closing market cap above ___ ? (9 markets)
+    [?] SpaceX IPO closing market cap above $1T?
+    [?] SpaceX IPO closing market cap above $1.4T?
+    [?] SpaceX IPO closing market cap above $1.2T?
+    [?] SpaceX IPO closing market cap above $1.6T?
+    [?] SpaceX IPO closing market cap above $1.8T?
+
+  EVENT: Solstice FDV above ___ one day after launch? (5 markets)
+    [?] Solstice FDV above $50M one day after launch?
+    [?] Solstice FDV above $200M one day after launch?
+    [?] Solstice FDV above $400M one day after launch?
+    [?] Solstice FDV above $100M one day after launch?
+    [?] Solstice FDV above $300M one day after launch?
+
+  EVENT: What will Based prediction market revenue hit before 2027? (5 markets)
+    [?] Will Based Polymarket revenue hit $2M before 2027?
+    [?] Will Based Polymarket revenue hit $4M before 2027?
+    [?] Will Based Polymarket revenue hit $1M before 2027?
+    [?] Will Based Polymarket revenue hit $3M before 2027?
+    [?] Will Based Polymarket revenue hit $5M before 2027?
+
+  EVENT: How many SpaceX Starship launches reach space in 2026? (8 markets)
+    [?] Will less than 5 SpaceX Starship launches successfully reach Space in 2026?
+    [?] Will 11-12 SpaceX Starship launches successfully reach Space in 2026?
+    [?] Will 5-6 SpaceX Starship launches successfully reach Space in 2026?
+    [?] Will 13-14 SpaceX Starship launches successfully reach Space in 2026?
+    [?] Will 7-8 SpaceX Starship launches successfully reach Space in 2026?
+
+  EVENT: Will Putin meet with Zelenskyy by March 31, 2026? (1 markets)
+    [?] Will Putin meet with Zelenskyy by March 31, 2026?
+
+  EVENT: Will another country boycott Eurovision 2026 by March 31, 2026? (1 markets)
+    [?] Will another country boycott Eurovision 2026 by March 31, 2026?
+
+  EVENT: Will Apple release a new product line before 2027? (1 markets)
+    [?] Will Apple release a new product line before 2027?
+
+  EVENT: Variational FDV above ___ one day after launch? (8 markets)
+    [?] Variational FDV above $800M one day after launch?
+    [?] Variational FDV above $2B one day after launch?
+    [?] Variational FDV above $4B one day after launch?
+    [?] Variational FDV above $1B one day after launch?
+    [?] Variational FDV above $3B one day after launch?
+
+  EVENT: Gemini 4.0 released by June 30, 2026? (1 markets)
+    [?] Gemini 4.0 released by June 30, 2026?
+
+  EVENT: Will Bitmine announce that it holds more than ___ ETH before 2027? (3 markets)
+    [?] Will Bitmine announce that it holds more than 5M ETH before 2027?
+    [?] Will Bitmine announce that it holds more than 9M ETH before 2027?
+    [?] Will Bitmine announce that it holds more than 7M ETH before 2027?
+
+  EVENT: What will the average monthly Ethereum gas price hit before 2027? (6 markets)
+    [?] Will the average monthly Ethereum gas price hit 10 Gwei before 2027?
+    [?] Will the average monthly Ethereum gas price hit 20 Gwei before 2027?
+    [?] Will the average monthly Ethereum gas price hit 40 Gwei before 2027?
+    [?] Will the average monthly Ethereum gas price hit 5 Gwei before 2027?
+    [?] Will the average monthly Ethereum gas price hit 15 Gwei before 2027?
+
+  EVENT: Octra FDV above ___ one day after launch? (4 markets)
+    [?] Octra FDV above $100M one day after launch?
+    [?] Octra FDV above $200M one day after launch?
+    [?] Octra FDV above $300M one day after launch?
+    [?] Octra FDV above $400M one day after launch?
+
+  EVENT: Will Daylight launch a token by ___? (5 markets)
+    [?] Will Daylight launch a token by December 31, 2025?
+    [?] Will Daylight launch a token by September 30, 2026?
+    [?] Will Daylight launch a token by December 31, 2026?
+    [?] Will Daylight launch a token by March 31, 2026?
+    [?] Will Daylight launch a token by June 30, 2026?
+
+  EVENT: Peru Senate Election Winner (20 markets)
+    [?] Will Fuerza Popular (FP) win the most seats in the 2026 Peruvian Senate election
+    [?] Will Alianza para el Progreso (APP) win the most seats in the 2026 Peruvian Sena
+    [?] Will Avanza País – Partido de Integración Social (AvP) win the most seats in the
+    [?] Will Other win the most seats in the 2026 Peruvian Senate election?
+    [?] Will Party C win the most seats in the 2026 Peruvian Senate election?
+
+  EVENT: Peru Chamber of Deputies Election Winner (20 markets)
+    [?] Will Perú Libre (PL) win the most seats in the 2026 Peruvian Chamber of Deputies
+    [?] Will Alianza para el Progreso (APP) win the most seats in the 2026 Peruvian Cham
+    [?] Will Renovación Popular (RP) win the most seats in the 2026 Peruvian Chamber of 
+    [?] Will Somos Perú (SP) win the most seats in the 2026 Peruvian Chamber of Deputies
+    [?] Will Party A win the most seats in the 2026 Peruvian Chamber of Deputies electio
+
+  EVENT: Peru Presidential Election Winner (49 markets)
+    [?] Will Rafael López Aliaga win the 2026 Peruvian presidential election?
+    [?] Will Carlos Álvarez win the 2026 Peruvian presidential election?
+    [?] Will César Acuña win the 2026 Peruvian presidential election?
+    [?] Will Vladimir Cerrón win the 2026 Peruvian presidential election?
+    [?] Will Roberto Chiabra win the 2026 Peruvian presidential election?
+
+  EVENT: Hungary Parliamentary Election Winner (37 markets)
+    [?] Will the Democratic Coalition (DK) win the most seats in the next Hungarian parl
+    [?] Will TISZA – Respect and Freedom Party (TISZA) win the most seats in the next Hu
+    [?] Will LMP – Hungary’s Green Party (LMP) win the most seats in the next Hungarian 
+    [?] Will Other win the most seats in the next Hungarian parliamentary election?
+    [?] Will Party A win the most seats in the next Hungarian parliamentary election?
+
+  EVENT: Somaliland Parliamentary Election Winner (31 markets)
+    [?] Will the Kulmiye Party (Peace, Unity, and Development Party) win the most seats 
+    [?] Will Party A win the most seats in the next Somaliland parliamentary election?
+    [?] Will Party H win the most seats in the next Somaliland parliamentary election?
+    [?] Will Party M win the most seats in the next Somaliland parliamentary election?
+    [?] Will Party V win the most seats in the next Somaliland parliamentary election?
+
+  EVENT: Bitcoin all time high by ___? (4 markets)
+    [?] Bitcoin all time high by March 31, 2026?
+    [?] Bitcoin all time high by June 30, 2026?
+    [?] Bitcoin all time high by September 30, 2026?
+    [?] Bitcoin all time high by December 31, 2026?
+
+  EVENT: Fed rate cut by...? (8 markets)
+    [?] Fed rate cut by June 2026 meeting?
+    [?] Fed rate cut by January 2026 meeting?
+    [?] Fed rate cut by April 2026 meeting?
+    [?] Fed rate cut by March 2026 meeting?
+    [?] Fed rate cut by September 2026 meeting?
+
+  EVENT: Fed decisions (Jan-Apr) (9 markets)
+    [?] Will the Fed Cut–Pause–Pause in the next three decisions (Jan–Mar–Apr)?
+    [?] Will the Fed Cut–Cut–Pause in the next three decisions (Jan–Mar–Apr)?
+    [?] Will the Fed Pause–Pause–Pause in the next three decisions (Jan–Mar–Apr)?
+    [?] Will the Fed Pause–Cut–Pause in the next three decisions (Jan–Mar–Apr)?
+    [?] Will the Fed decide differently in the next three decisions (Jan–Mar–Apr)?
+
+  EVENT: Trump, Putin, and Zelensky meet together before 2027? (1 markets)
+    [?] Trump, Putin, and Zelensky meet together before 2027?
+
+  EVENT: Latvian Parliamentary Election Winner (36 markets)
+    [?] Will Sociāldemokrātiskā Partija “Saskaņa” (S) win the most seats in the 2026 Lat
+    [?] Will Party H win the most seats in the 2026 Latvian parliamentary election?
+    [?] Will Party M win the most seats in the 2026 Latvian parliamentary election?
+    [?] Will Party N win the most seats in the 2026 Latvian parliamentary election?
+    [?] Will Party P win the most seats in the 2026 Latvian parliamentary election?
+
+  EVENT: Ethiopia Parliamentary Election Winner (32 markets)
+    [?] Will the Tigray People’s Liberation Front (TPLF) win the most seats in the 2026 
+    [?] Will Party C win the most seats in the 2026 Ethiopian general election?
+    [?] Will Party D win the most seats in the 2026 Ethiopian general election?
+    [?] Will Party E win the most seats in the 2026 Ethiopian general election?
+    [?] Will Party F win the most seats in the 2026 Ethiopian general election?
+
+  EVENT: Bitcoin vs. Gold vs. S&P 500 in 2026 (3 markets)
+    [?] Will Bitcoin have the best performance in 2026?
+    [?] Will Gold have the best performance in 2026?
+    [?] Will the S&P 500 have the best performance in 2026?
+
+  EVENT: Ethereum all time high by ___? (4 markets)
+    [?] Ethereum all time high by March 31, 2026?
+    [?] Ethereum all time high by June 30, 2026?
+    [?] Ethereum all time high by September 30, 2026?
+    [?] Ethereum all time high by December 31, 2026?
+
+  EVENT: West Bengal Legislative Assembly Election Winner (33 markets)
+    [?] Will the All India Trinamool Congress (AITC) win the most seats in the 2026 West
+    [?] Will the Bharatiya Janata Party (BJP) win the most seats in the 2026 West Bengal
+    [?] Will the Communist Party of India (CPI) win the most seats in the 2026 West Beng
+    [?] Will the Communist Party of India (Marxist) (CPI(M)) win the most seats in the 2
+    [?] Will the Indian National Congress (INC) win the most seats in the 2026 West Beng
+
+  EVENT: Solana all time high by ___? (4 markets)
+    [?] Solana all time high by March 31, 2026?
+    [?] Solana all time high by September 30, 2026?
+    [?] Solana all time high by December 31, 2026?
+    [?] Solana all time high by June 30, 2026?
+
+  EVENT: Slovenian Parliamentary Election Winner (42 markets)
+    [?] Will the Slovenian Democratic Party (SDS) win the most seats in the 2026 Sloveni
+    [?] Will the Freedom Movement (GS) win the most seats in the 2026 Slovenian parliame
+    [?] Will the Social Democrats (SD) win the most seats in the 2026 Slovenian parliame
+    [?] Will the Democrats (D) win the most seats in the 2026 Slovenian parliamentary el
+    [?] Will New Slovenia – Christian Democrats (NSi) win the most seats in the 2026 Slo
+
+  EVENT: XRP all time high by ___? (4 markets)
+    [?] XRP all time high by March 31, 2026?
+    [?] XRP all time high by June 30, 2026?
+    [?] XRP all time high by September 30, 2026?
+    [?] XRP all time high by December 31, 2026?
+
+  EVENT: Ukraine signs peace deal with Russia by June 30? (1 markets)
+    [?] Ukraine signs peace deal with Russia by June 30?
+
+  EVENT: US-Iran nuclear deal by June 30? (1 markets)
+    [?] US-Iran nuclear deal by June 30?
+
+  EVENT: Will the Iranian regime fall by March 31? (1 markets)
+    [?] Will the Iranian regime fall by March 31?
+
+  EVENT: Will the Iranian regime fall by June 30? (1 markets)
+    [?] Will the Iranian regime fall by June 30?
+
+  EVENT: NH-01 Republican Primary Winner (21 markets)
+    [?] Will Melissa Bailey be the Republican Nominee for NH-01?
+    [?] Will Anthony DiLorenzo be the Republican Nominee for NH-01?
+    [?] Will Hollie Noveletsky be the Republican Nominee for NH-01?
+    [?] Will Person A be the Republican Nominee for NH-01?
+    [?] Will Person C be the Republican Nominee for NH-01?
+
+  EVENT: Ethereum Up or Down - December 19, 11:30AM-11:35AM ET (1 markets)
+    [?] Ethereum Up or Down - December 19, 11:30AM-11:35AM ET
+
+  EVENT: Bitcoin Up or Down - December 19, 11:35AM-11:40AM ET (1 markets)
+    [?] Bitcoin Up or Down - December 19, 11:35AM-11:40AM ET
+
+  EVENT: Ethereum Up or Down - December 19, 11:35AM-11:40AM ET (1 markets)
+    [?] Ethereum Up or Down - December 19, 11:35AM-11:40AM ET
+
+  EVENT: Solana Up or Down - December 19, 11:35AM-11:40AM ET (1 markets)
+    [?] Solana Up or Down - December 19, 11:35AM-11:40AM ET
+
+  EVENT: Ethereum Up or Down - December 19, 11:40AM-11:45AM ET (1 markets)
+    [?] Ethereum Up or Down - December 19, 11:40AM-11:45AM ET
+
+  EVENT: Solana Up or Down - December 19, 11:40AM-11:45AM ET (1 markets)
+    [?] Solana Up or Down - December 19, 11:40AM-11:45AM ET
+
+  EVENT: Bitcoin Up or Down - December 19, 11:40AM-11:45AM ET (1 markets)
+    [?] Bitcoin Up or Down - December 19, 11:40AM-11:45AM ET
+
+  EVENT: Bitcoin Up or Down - December 19, 11:45AM-11:50AM ET (1 markets)
+    [?] Bitcoin Up or Down - December 19, 11:45AM-11:50AM ET
+
+  EVENT: Ethereum Up or Down - December 19, 11:45AM-11:50AM ET (1 markets)
+    [?] Ethereum Up or Down - December 19, 11:45AM-11:50AM ET
+
+  EVENT: Solana Up or Down - December 19, 11:45AM-11:50AM ET (1 markets)
+    [?] Solana Up or Down - December 19, 11:45AM-11:50AM ET
+
+  EVENT: Ethereum Up or Down - December 19, 11:50AM-11:55AM ET (1 markets)
+    [?] Ethereum Up or Down - December 19, 11:50AM-11:55AM ET
+
+  EVENT: Bitcoin Up or Down - December 19, 11:50AM-11:55AM ET (1 markets)
+    [?] Bitcoin Up or Down - December 19, 11:50AM-11:55AM ET
+
+  EVENT: Solana Up or Down - December 19, 11:50AM-11:55AM ET (1 markets)
+    [?] Solana Up or Down - December 19, 11:50AM-11:55AM ET
+
+  EVENT: Solana Up or Down - December 19, 11:55AM-12:00PM ET (1 markets)
+    [?] Solana Up or Down - December 19, 11:55AM-12:00PM ET
+
+  EVENT: Ethereum Up or Down - December 19, 11:55AM-12:00PM ET (1 markets)
+    [?] Ethereum Up or Down - December 19, 11:55AM-12:00PM ET
+
+  EVENT: Bitcoin Up or Down - December 19, 11:55AM-12:00PM ET (1 markets)
+    [?] Bitcoin Up or Down - December 19, 11:55AM-12:00PM ET
+
+  EVENT: Ethereum Up or Down - December 19, 12:00PM-12:05PM ET (1 markets)
+    [?] Ethereum Up or Down - December 19, 12:00PM-12:05PM ET
+
+  EVENT: Bitcoin Up or Down - December 19, 12:00PM-12:05PM ET (1 markets)
+    [?] Bitcoin Up or Down - December 19, 12:00PM-12:05PM ET
+
+  EVENT: Solana Up or Down - December 19, 12:00PM-12:05PM ET (1 markets)
+    [?] Solana Up or Down - December 19, 12:00PM-12:05PM ET
+
+  EVENT: Bitcoin Up or Down - December 19, 12:05PM-12:10PM ET (1 markets)
+    [?] Bitcoin Up or Down - December 19, 12:05PM-12:10PM ET
+
+  EVENT: Solana Up or Down - December 19, 12:05PM-12:10PM ET (1 markets)
+    [?] Solana Up or Down - December 19, 12:05PM-12:10PM ET
+
+  EVENT: Ethereum Up or Down - December 19, 12:05PM-12:10PM ET (1 markets)
+    [?] Ethereum Up or Down - December 19, 12:05PM-12:10PM ET
+
+  EVENT: Will Jeremiyah Love go top 10 in the 2026 Pro Football draft?  (1 markets)
+    [?] Will Jeremiyah Love go top 10 in the 2026 Pro Football draft? 
+
+  EVENT: Trump Media x TAE Technologies merger closed by March 31? (1 markets)
+    [?] Trump Media x TAE Technologies merger closed by March 31?
+
+  EVENT: Meta "Mango" model released by...? (2 markets)
+    [?] Meta "Mango" model released by March 31?
+    [?] Meta "Mango" model released by June 30?
+
+  EVENT: Bill Clinton divorce by June 30? (1 markets)
+    [?] Bill Clinton divorce by June 30?
+
+  EVENT: 2026 Pro Football Draft: 2nd Overall Pick  (54 markets)
+    [?] Will Fernando Mendoza be the second pick in the 2026 NFL draft?
+    [?] Will Dante Moore be the second pick in the 2026 NFL draft?
+    [?] Will Nico Iamaleava be the second pick in the 2026 NFL draft?
+    [?] Will Drew Allar be the second pick in the 2026 NFL draft?
+    [?] Will Carson Beck be the second pick in the 2026 NFL draft?
+
+  EVENT: 2026 Pro Football Draft: 3rd Overall Pick   (54 markets)
+    [?] Will Fernando Mendoza be the third pick in the 2026 NFL draft?
+    [?] Will Dante Moore be the third pick in the 2026 NFL draft?
+    [?] Will Nico Iamaleava be the third pick in the 2026 NFL draft?
+    [?] Will Drew Allar be the third pick in the 2026 NFL draft?
+    [?] Will Carson Beck be the third pick in the 2026 NFL draft?
+
+  EVENT: Greece x Turkey military engagement by June 30? (1 markets)
+    [?] Greece x Turkey military engagement by June 30?
+
+  EVENT: Will Trump acquire Greenland before 2027? (1 markets)
+    [?] Will Trump acquire Greenland before 2027?
+
+  EVENT: Assam Legislative Assembly Election Winner (37 markets)
+    [?] Will the Communist Party of India (Marxist) (CPI(M)) win the most seats in the 2
+    [?] Will the Indian National Congress (INC) win the most seats in the 2026 Assam Leg
+    [?] Will the Nationalist Congress Party (NCP) win the most seats in the 2026 Assam L
+    [?] Will the All India United Democratic Front (AIUDF) win the most seats in the 202
+    [?] Will the Bodoland People’s Front (BPF) win the most seats in the 2026 Assam Legi
+
+  EVENT: Tamil Nadu Legislative Assembly Election Winner (38 markets)
+    [?] Will the All India Trinamool Congress (AITC) win the most seats in the 2026 Tami
+    [?] Will the Communist Party of India (Marxist) (CPI(M)) win the most seats in the 2
+    [?] Will the Desiya Murpokku Dravida Kazhagam (DMDK) win the most seats in the 2026 
+    [?] Will Party D win the most seats in the 2026 Tamil Nadu Legislative Assembly elec
+    [?] Will Party H win the most seats in the 2026 Tamil Nadu Legislative Assembly elec
+
+  EVENT: Puducherry Legislative Assembly Election Winner (35 markets)
+    [?] Will the Communist Party of India (Marxist) (CPI(M)) win the most seats in the 2
+    [?] Will the Dravida Munnetra Kazhagam (DMK) win the most seats in the 2026 Puducher
+    [?] Will Party F win the most seats in the 2026 Puducherry Legislative Assembly elec
+    [?] Will Party K win the most seats in the 2026 Puducherry Legislative Assembly elec
+    [?] Will Party M win the most seats in the 2026 Puducherry Legislative Assembly elec

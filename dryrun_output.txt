@@ -1,0 +1,81 @@
+=== polymarket-loop run ===
+[DRY RUN MODE — no data will be written to Supabase]
+Fetched 2000 total active events from Polymarket
+Filtered to 189 crypto/bitcoin events
+Found 745 tradeable crypto/bitcoin markets
+
+Analyzing: Will the Colorado Avalanche win the 2026 NHL Stanley Cup?
+  Skipped: Domain is 'other' (sports), not in allowed list [politics, crypto, economics, science, climate, bitcoin]
+
+Analyzing: Will the Minnesota Wild win the 2026 NHL Stanley Cup?
+  Skipped: Domain is sports, which is outside the allowed domains of politics, crypto, economics, science, climate, or bitcoin, and liquidity is low.
+
+Analyzing: Will the Los Angeles Kings win the 2026 NHL Stanley Cup?
+  Analyst: P=0.050 vs Market=0.009 | edge=0.041 | lean=YES
+  Reasoning: Historical base rate for a top-8 seeded ex-champion is ~4.6%; Kings' elite cap space, young core and
+  [DRY RUN] Would place paper bet (edge=0.041)
+
+Analyzing: Will Bitcoin reach $250,000 by December 31, 2026?
+  Analyst: P=0.800 vs Market=0.043 | edge=0.757 | lean=YES
+  Reasoning: Historical halving cycles show 100% odds of a ≥270% move and structural ETF demand plus the April-20
+  [DRY RUN] Would place paper bet (edge=0.757)
+
+Analyzing: Will Bitcoin dip to $15,000 by December 31, 2026?
+  Analyst: P=0.400 vs Market=0.082 | edge=0.318 | lean=YES
+  Reasoning: Historical draw-downs show BTC eventually retraces ≥78 % from peak 3/3 times, but ETF inflows and a 
+  [DRY RUN] Would place paper bet (edge=0.318)
+
+Analyzing: Will the New York Islanders win the 2026 NHL Stanley Cup?
+  Analyst: P=0.130 vs Market=0.009 | edge=0.121 | lean=YES
+  Reasoning: High-volume, tight-spread market at 0.9 % is already pricing the Islanders as extreme long-shots, bu
+  [DRY RUN] Would place paper bet (edge=0.121)
+
+Analyzing: Bitcoin all time high by March 31, 2026?
+  Analyst: P=0.950 vs Market=0.001 | edge=0.949 | lean=YES
+  Reasoning: Market at 0.001 is pricing a near-impossible event, but macro evidence (3/4 historical ATHs within 1
+  [DRY RUN] Would place paper bet (edge=0.949)
+
+Analyzing: EdgeX FDV above $1B one day after launch?
+  Analyst: P=0.030 vs Market=0.080 | edge=0.050 | lean=NO
+  Reasoning: Base-rate ~10% for similar launches, but EdgeX needs a 10× price jump from pre-market OTC levels to 
+  [DRY RUN] Would place paper bet (edge=0.050)
+
+Analyzing: Will the Buffalo Sabres win the 2026 NHL Stanley Cup?
+  Skipped: Low liquidity on a niche sports future
+
+Analyzing: MicroStrategy sells any Bitcoin by March 31, 2026?
+  Analyst: P=0.010 vs Market=0.003 | edge=0.007 | lean=YES
+  Reasoning: MicroStrategy has never sold Bitcoin and has multiple financing avenues that avoid selling, so the r
+  Edge too small (0.007 < 0.03), skipping bet
+
+Analyzing: MegaETH market cap (FDV) >$6B one day after launch?
+  Analyst: P=0.350 vs Market=0.021 | edge=0.329 | lean=YES
+  Reasoning: Base rate 11 %, but identical launch playbook (Binance+Coinbase day-1, 100 % circulating, Paradigm/a
+  [DRY RUN] Would place paper bet (edge=0.329)
+
+Analyzing: Will Satoshi move any Bitcoin in 2026?
+  Analyst: P=0.080 vs Market=0.086 | edge=0.006 | lean=NO
+  Reasoning: High-liquidity market at 8.6 % already prices in the ~97 % historical dormancy of ancient UTXOs; my 
+  Edge too small (0.006 < 0.03), skipping bet
+
+Analyzing: Will Bitcoin dip to $55,000 by December 31, 2026?
+  Analyst: P=0.780 vs Market=0.760 | edge=0.020 | lean=YES
+  Reasoning: Historical base rate is 82% for a ≥39% drawdown within two years, but institutional ETF demand and F
+  Edge too small (0.020 < 0.03), skipping bet
+
+Analyzing: Opensea FDV above $1B one day after launch?
+  Skipped: This market is about a past event—OpenSea’s IPO has already occurred and the one-day post-launch window is historical.
+
+Analyzing: Opensea FDV above $500M one day after launch?
+  Analyst: P=0.220 vs Market=0.342 | edge=0.122 | lean=NO
+  Reasoning: Base rate is 35% but NFT volume collapse, OpenSea's eroded share, and large day-one float all point 
+  [DRY RUN] Would place paper bet (edge=0.122)
+
+============================================================
+RUN COMPLETE
+  Markets fetched:  745
+  Markets analyzed: 15
+  Bets placed:      8
+  Skipped (filter): 4
+  Skipped (dup):    0
+============================================================

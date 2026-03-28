@@ -1,6 +1,6 @@
 from dotenv import load_dotenv
 load_dotenv()
-import hashlib, os, json, time, requests
+import hashlib, os, json, time, requests, sys
 from groq import Groq, RateLimitError
 from supabase import create_client
 from datetime import datetime, timezone
@@ -8,6 +8,9 @@ from datetime import datetime, timezone
 sb = create_client(os.environ["SUPABASE_URL"], os.environ["SUPABASE_KEY"])
 groq = Groq(api_key=os.environ["GROQ_API_KEY"])
 MODEL = "moonshotai/kimi-k2-instruct-0905"
+
+# Minimum edge (|predicted - market_price|) to place a paper bet
+MIN_EDGE = 0.03
 
 macro_prompt = open("prompts/macro.md").read()
 domains_prompt = open("prompts/domains.md").read()
@@ -42,84 +45,174 @@ GAMING_BLACKLIST = [
     "gaming", "game release",
 ]
 
-def _iter_raw_markets(tag=None, keyword=None):
-    """Yield raw market dicts from Gamma API by tag slug or keyword search."""
-    params = {"active": "true", "closed": "false", "limit": 100}
-    if tag:
-        params["tag_slug"] = tag
-    if keyword:
-        params["q"] = keyword
-    r = requests.get("https://gamma-api.polymarket.com/markets", params=params, timeout=10)
-    data = r.json() if r.ok else []
-    if not isinstance(data, list):
-        data = data.get("markets", [])
-    yield from data
+# Keywords that identify crypto/bitcoin-related events and markets
+# These are matched against event TITLE + market QUESTION text (not descriptions)
+CRYPTO_KEYWORDS = [
+    # Core crypto
+    "bitcoin", "btc", "$btc", "ethereum", "$eth", "solana", "$sol",
+    # Crypto ecosystem
+    "defi", "blockchain", "stablecoin", "halving",
+    "coinbase", "binance", "kraken", "opensea", "metamask",
+    "airdrop", "fdv", "microstr",  # MicroStrategy
+    "nft", "web3", "dao",
+    # Compound phrases (more precise than single words)
+    "launch a token", "crypto hack", "crypto price", "crypto tax",
+    "bitcoin reserve", "ethereum reserve", "digital asset",
+    "mining",
+]
+
+# These words in event title immediately qualify as crypto
+CRYPTO_TITLE_KEYWORDS = [
+    "bitcoin", "btc", "ethereum", "eth", "solana", "crypto",
+    "fdv", "airdrop", "token", "blockchain", "defi",
+    "coinbase", "kraken", "binance", "opensea", "metamask",
+    "microstrategy", "megaeth",
+]
+
+def _fetch_all_active_events():
+    """Fetch all active events from the Gamma /events endpoint (paginated)."""
+    all_events = []
+    offset = 0
+    while offset < 2000:
+        try:
+            r = requests.get("https://gamma-api.polymarket.com/events", params={
+                "active": "true", "closed": "false", "limit": 100, "offset": offset,
+            }, timeout=15)
+            if not r.ok:
+                break
+            chunk = r.json()
+            if isinstance(chunk, dict) and "error" in chunk:
+                break
+            if not chunk or (isinstance(chunk, list) and len(chunk) == 0):
+                break
+            if isinstance(chunk, list):
+                all_events.extend(chunk)
+            elif isinstance(chunk, dict) and "data" in chunk:
+                all_events.extend(chunk["data"])
+            offset += 100
+        except Exception as e:
+            print(f"  Event fetch error at offset {offset}: {e}")
+            break
+    return all_events
+
+def _is_crypto_event(event):
+    """Check if an event is crypto/bitcoin related. 
+    Matches on event TITLE and market QUESTIONS only — not descriptions (too noisy)."""
+    title = str(event.get("title", "")).lower()
+    
+    # Fast path: if title has a crypto keyword, it's crypto
+    if any(kw in title for kw in CRYPTO_TITLE_KEYWORDS):
+        return True
+    
+    # Slower path: check market questions only
+    markets = event.get("markets", [])
+    if isinstance(markets, list):
+        for m in markets:
+            if isinstance(m, dict):
+                question = str(m.get("question", "")).lower()
+                if any(kw in question for kw in CRYPTO_KEYWORDS):
+                    return True
+    return False
 
 def fetch_markets():
-    # Use Gamma API — it supports active/closed filters and returns current markets
-    # Tags: standard categories + bitcoin for BTC price prediction markets
-    tags = ["politics", "crypto", "economics", "science", "climate", "bitcoin"]
+    """Fetch active crypto/bitcoin markets from Polymarket using the /events endpoint."""
+    now = datetime.now(timezone.utc)
+    
+    # Step 1: Fetch all active events
+    all_events = _fetch_all_active_events()
+    print(f"Fetched {len(all_events)} total active events from Polymarket")
+    
+    # Step 2: Filter for crypto/bitcoin events
+    crypto_events = [e for e in all_events if isinstance(e, dict) and _is_crypto_event(e)]
+    print(f"Filtered to {len(crypto_events)} crypto/bitcoin events")
+    
+    # Step 3: Extract individual markets from matching events
     seen = set()
     markets = []
-    now = datetime.now(timezone.utc)
-
-    # Build source list: tag-based scans + dedicated Bitcoin price keyword search
-    sources = [(tag, None) for tag in tags] + [(None, "bitcoin price")]
-
-    for tag, keyword in sources:
-        for m in _iter_raw_markets(tag=tag, keyword=keyword):
-            cid = m.get("conditionId")
-            q_lower = m.get("question", "").lower()
-            end_raw = m.get("endDateIso") or m.get("endDate") or ""
+    
+    for event in crypto_events:
+        event_markets = event.get("markets", [])
+        if not isinstance(event_markets, list):
+            continue
+        for m in event_markets:
+            if not isinstance(m, dict):
+                continue
+            cid = m.get("conditionId") or m.get("condition_id")
+            if not cid or cid in seen:
+                continue
+            
+            # Skip closed/inactive markets
+            if m.get("closed") or not m.get("active", True):
+                continue
+            
+            # Skip gaming/entertainment noise
+            q_lower = (m.get("question", "") or "").lower()
+            if any(kw in q_lower for kw in GAMING_BLACKLIST):
+                continue
+            
+            # Skip past-end-date markets
+            end_raw = m.get("endDateIso") or m.get("endDate") or m.get("end_date_iso") or ""
             if end_raw:
                 try:
-                    end_dt = datetime.fromisoformat(end_raw.replace("Z", "+00:00"))
+                    end_dt = datetime.fromisoformat(str(end_raw).replace("Z", "+00:00"))
                     if end_dt.tzinfo is None:
                         end_dt = end_dt.replace(tzinfo=timezone.utc)
                     if end_dt < now:
                         continue
-                except ValueError:
+                except (ValueError, TypeError):
                     pass
-            if not cid or cid in seen:
-                continue
-            # Skip gaming/entertainment noise (GTA VI benchmark questions etc.)
-            if any(kw in q_lower for kw in GAMING_BLACKLIST):
-                continue
+            
             seen.add(cid)
-            # normalize to the field names run() expects
-            price_raw = m.get("lastTradePrice") or m.get("bestAsk") or 0.5
+            
+            # Normalize fields
+            price_raw = m.get("lastTradePrice") or m.get("bestAsk") or m.get("outcomePrices")
+            if isinstance(price_raw, str) and price_raw.startswith("["):
+                try:
+                    prices = json.loads(price_raw)
+                    price_raw = prices[0] if prices else 0.5
+                except Exception:
+                    price_raw = 0.5
+            price_raw = float(price_raw or 0.5)
+            
             best_bid = float(m.get("bestBid") or price_raw)
             best_ask = float(m.get("bestAsk") or price_raw)
             spread = round(best_ask - best_bid, 4)
             volume = float(m.get("volumeClob") or m.get("volume") or 0)
-            # days until close (0 if unknown)
+            
+            # Days until close
             days_left = 0
             if end_raw:
                 try:
-                    end_dt = datetime.fromisoformat(end_raw.replace("Z", "+00:00"))
+                    end_dt = datetime.fromisoformat(str(end_raw).replace("Z", "+00:00"))
                     if end_dt.tzinfo is None:
                         end_dt = end_dt.replace(tzinfo=timezone.utc)
                     days_left = max(0, (end_dt - now).days)
-                except ValueError:
+                except (ValueError, TypeError):
                     pass
-            # Extract YES token ID from clobTokenIds — needed for CLOB /book and /prices-history
+            
+            # Extract YES token ID
             clob_token_ids_raw = m.get("clobTokenIds", "[]")
             try:
                 clob_token_ids = json.loads(clob_token_ids_raw) if isinstance(clob_token_ids_raw, str) else clob_token_ids_raw
                 yes_token_id = clob_token_ids[0] if clob_token_ids else None
             except Exception:
                 yes_token_id = None
+            
             markets.append({
                 "condition_id": cid,
                 "question": m.get("question", ""),
-                "tokens": [{"price": float(price_raw)}],
-                "_end_date": end_raw[:10],
+                "tokens": [{"price": price_raw}],
+                "_end_date": str(end_raw)[:10],
                 "_days_left": days_left,
                 "_spread": spread,
                 "_volume": volume,
                 "_yes_token_id": yes_token_id,
+                "_event_title": event.get("title", ""),
             })
-    print(f"Fetched {len(markets)} relevant markets (future/active only)")
+    
+    # Sort by volume (highest first) so we analyze the most liquid markets first
+    markets.sort(key=lambda m: m["_volume"], reverse=True)
+    print(f"Found {len(markets)} tradeable crypto/bitcoin markets")
     return markets
 
 def calibration_summary():
@@ -298,8 +391,23 @@ def eval_resolved():
 
 def run():
     print("=== polymarket-loop run ===")
+    if DRY_RUN:
+        print("[DRY RUN MODE — no data will be written to Supabase]")
+    
+    run_stats = {
+        "started_at": datetime.now(timezone.utc).isoformat(),
+        "finished_at": None,
+        "markets_fetched": 0,
+        "markets_analyzed": 0,
+        "bets_placed": 0,
+        "markets_skipped_filter": 0,
+        "markets_skipped_duplicate": 0,
+        "errors": [],
+    }
+
     eval_resolved()
     markets = fetch_markets()
+    run_stats["markets_fetched"] = len(markets)
 
     # Load calibration feedback once — passed to every analyst call
     cal_note = calibration_summary()
@@ -318,8 +426,10 @@ def run():
 
         if cid in open_market_ids:
             print(f"  Skipping duplicate open bet: {q[:50]}")
+            run_stats["markets_skipped_duplicate"] += 1
             continue
 
+        run_stats["markets_analyzed"] += 1
         print(f"\nAnalyzing: {q[:60]}")
 
         # Fetch CLOB signals before calling LLMs (no extra Groq rate-limit cost)
@@ -341,6 +451,7 @@ def run():
 
         if not domain_result.get("proceed", False):
             print(f"  Skipped: {domain_result.get('reason', 'domain filter rejected')}")
+            run_stats["markets_skipped_filter"] += 1
             continue
 
         # Pass clean JSON summary to analyst, not raw LLM output
@@ -395,24 +506,129 @@ def run():
             start = raw.find("{")
             end = raw.rfind("}") + 1
             result = json.loads(raw[start:end])
-            if result.get("place_paper_bet"):
-                sb.table("bets").insert({
-                    "market_id": cid,
-                    "question": q,
-                    "predicted_prob": result["final_prob"],
-                    "market_price": price,
-                    "resolved": False,
-                    "created_at": datetime.now(timezone.utc).isoformat(),
-                    "eval_split": "production",
-                    "prompt_hash": _prompt_hash(),
-                    "market_context": context_json,
-                }).execute()
-                edge_val = result.get("edge") or 0
-                print(f"✓ Paper bet logged | edge: {edge_val:.3f}")
+            final_prob = result.get("final_prob")
+            if final_prob is None:
+                print(f"  No final_prob in analyst output, skipping")
+                run_stats["errors"].append(f"No final_prob: {q[:40]}")
+                continue
+            edge = abs(final_prob - price)
+            direction = "YES" if final_prob > price else "NO"
+            print(f"  Analyst: P={final_prob:.3f} vs Market={price:.3f} | edge={edge:.3f} | lean={direction}")
+            print(f"  Reasoning: {result.get('reasoning', 'n/a')[:100]}")
+
+            if edge >= MIN_EDGE:
+                if DRY_RUN:
+                    print(f"  [DRY RUN] Would place paper bet (edge={edge:.3f})")
+                    run_stats["bets_placed"] += 1
+                else:
+                    sb.table("bets").insert({
+                        "market_id": cid,
+                        "question": q,
+                        "predicted_prob": final_prob,
+                        "market_price": price,
+                        "resolved": False,
+                        "created_at": datetime.now(timezone.utc).isoformat(),
+                        "eval_split": "production",
+                        "prompt_hash": _prompt_hash(),
+                        "market_context": context_json,
+                    }).execute()
+                    run_stats["bets_placed"] += 1
+                    print(f"  >>> PAPER BET PLACED | edge={edge:.3f} <<<")
             else:
-                print(f"No edge found")
+                print(f"  Edge too small ({edge:.3f} < {MIN_EDGE}), skipping bet")
         except Exception as e:
-            print(f"Parse error: {e}")
+            print(f"  Parse error: {e}")
+            run_stats["errors"].append(str(e))
+
+    # ── Run summary ─────────────────────────────────────────────────────
+    run_stats["finished_at"] = datetime.now(timezone.utc).isoformat()
+    print("\n" + "=" * 60)
+    print(f"RUN COMPLETE")
+    print(f"  Markets fetched:  {run_stats['markets_fetched']}")
+    print(f"  Markets analyzed: {run_stats['markets_analyzed']}")
+    print(f"  Bets placed:      {run_stats['bets_placed']}")
+    print(f"  Skipped (filter): {run_stats['markets_skipped_filter']}")
+    print(f"  Skipped (dup):    {run_stats['markets_skipped_duplicate']}")
+    if run_stats["errors"]:
+        print(f"  Errors:           {len(run_stats['errors'])}")
+        for err in run_stats["errors"][:5]:
+            print(f"    - {err[:80]}")
+    print("=" * 60)
+
+    # Log run to Supabase (if run_logs table exists)
+    if not DRY_RUN:
+        try:
+            sb.table("run_logs").insert({
+                "started_at": run_stats["started_at"],
+                "finished_at": run_stats["finished_at"],
+                "markets_fetched": run_stats["markets_fetched"],
+                "markets_analyzed": run_stats["markets_analyzed"],
+                "bets_placed": run_stats["bets_placed"],
+                "markets_skipped_filter": run_stats["markets_skipped_filter"],
+                "markets_skipped_duplicate": run_stats["markets_skipped_duplicate"],
+                "errors": run_stats["errors"][:10],
+                "prompt_hash": _prompt_hash(),
+            }).execute()
+        except Exception:
+            pass  # run_logs table might not exist yet
+
+
+def show_status():
+    """Quick status check — shows DB state without running any agents."""
+    print("=== polymarket-loop status ===")
+    all_bets = sb.table("bets").select("*").execute().data
+    resolved = [b for b in all_bets if b.get("resolved")]
+    unresolved = [b for b in all_bets if not b.get("resolved")]
+    real_bets = [b for b in all_bets if b.get("prompt_hash") != "seed"]
+    seed_bets = [b for b in all_bets if b.get("prompt_hash") == "seed"]
+
+    print(f"\nTotal bets:    {len(all_bets)}")
+    print(f"  Real bets:   {len(real_bets)}")
+    print(f"  Seed bets:   {len(seed_bets)}")
+    print(f"  Resolved:    {len(resolved)}")
+    print(f"  Open:        {len(unresolved)}")
+
+    if resolved:
+        brier = sum((b["predicted_prob"] - b["outcome"]) ** 2 for b in resolved) / len(resolved)
+        correct = sum(1 for b in resolved
+                      if (b["predicted_prob"] >= 0.5 and b["outcome"] == 1.0) or
+                         (b["predicted_prob"] < 0.5 and b["outcome"] == 0.0))
+        print(f"\nBrier score:   {brier:.4f}")
+        print(f"Accuracy:      {correct}/{len(resolved)} ({100*correct//len(resolved)}%)")
+        real_resolved = [b for b in resolved if b.get("prompt_hash") != "seed"]
+        if real_resolved:
+            real_brier = sum((b["predicted_prob"] - b["outcome"]) ** 2 for b in real_resolved) / len(real_resolved)
+            print(f"\nReal-only Brier: {real_brier:.4f} (n={len(real_resolved)})")
+        else:
+            print(f"\nReal-only Brier: no resolved real bets yet")
+    else:
+        print(f"\nBrier score:   not enough data")
+
+    # Recent bets
+    recent = sorted(all_bets, key=lambda b: b.get("created_at", ""), reverse=True)[:5]
+    if recent:
+        print(f"\nLast 5 bets:")
+        for b in recent:
+            status = "RESOLVED" if b.get("resolved") else "OPEN"
+            ph = b.get("prompt_hash", "?")[:8]
+            print(f"  [{status}] {b['question'][:50]} | P={b['predicted_prob']:.2f} | hash={ph}")
+
+    # Run logs
+    try:
+        logs = sb.table("run_logs").select("*").order("started_at", desc=True).limit(3).execute().data
+        if logs:
+            print(f"\nLast 3 runs:")
+            for log in logs:
+                t = log.get("started_at", "?")[:19]
+                print(f"  {t} | fetched={log.get('markets_fetched',0)} analyzed={log.get('markets_analyzed',0)} bets={log.get('bets_placed',0)}")
+    except Exception:
+        pass  # run_logs table might not exist
+
+
+DRY_RUN = "--dry-run" in sys.argv
 
 if __name__ == "__main__":
-    run()
+    if "--status" in sys.argv:
+        show_status()
+    else:
+        run()
