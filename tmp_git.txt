@@ -1,0 +1,16 @@
+ddb0acd exp68: add extreme market rule — 0.85+ market agreeing -> 0.90+
+e15313e exp59: pure exp35 style — remove momentum/imbalance signals
+5295f79 exp58: revert to exp35 style with momentum/imbalance signals added
+a2c0b7c exp47: stronger extremization when adjusted_rate is high-confidence
+edfed8a exp46: anchor to adjusted_rate from macro, extremize when agreeing with market
+be703db exp45: use momentum and book imbalance signals in analyst
+edc5a01 exp41: soften extremization thresholds
+0e890f9 exp40: remove 5pp extremization
+7e85a1b exp35: remove step 4 market comparison (combined)
+25ebc7c exp32: remove edge and place_paper_bet from output
+---  
+autoloop/mar26
+---  
+ M prompts/analyst.md
+?? hash.txt
+?? tmp_git.txt
