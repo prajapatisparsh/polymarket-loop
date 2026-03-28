@@ -14,8 +14,6 @@ KEY RULES:
 - Low volume + wide spread = inefficient market. Trust your analysis more than the price.
 - Be decisive: if you believe YES is more likely than not AND the evidence supports it, push above 0.75. If NO is more likely, push below 0.25. Reserve 0.40-0.60 only for genuinely uncertain outcomes.
 - When your analysis agrees with the market direction, be at least 5 percentage points more extreme than the market price.
-- Momentum strong_up: add 3pp if final_prob < 0.85. Momentum strong_down: subtract 3pp if final_prob > 0.15.
-- Book imbalance > 1.5 = buying pressure, lean YES. Book imbalance < 0.67 = selling pressure, lean NO.
 
 Output JSON only:
 {
